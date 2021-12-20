@@ -1,14 +1,16 @@
 import React from 'react'
 import { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import UserHeader from './UserHeader';
 
 const UserLogin = () => {
     const [userEmail, setUserEmail] = useState("");
     const [userPassword, setUserPassword] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        navigate("/userdashboard");
     }
 
     
