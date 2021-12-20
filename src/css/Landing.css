@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    height: 1080px;
+}
+
+.user {
+    width: 50%;
+    height: 100%;
+    border: 1px solid black;
+    
+}
+
+.instructor {
+    width: 50%;
+    height: 100%;
+    border: 1px solid black;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    height: 50%;
+    width: 50%;
+    margin: 20% auto;
+    border: 1px solid black;
+    background-color: white;
+}

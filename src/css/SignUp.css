@@ -1,0 +1,12 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    height: 50%;
+    width: 50%;
+    margin: 20% auto;
+    border: 1px solid black;
+    background-color: white;
+}
