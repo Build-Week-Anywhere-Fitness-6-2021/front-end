@@ -2,16 +2,26 @@ import React from 'react'
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import axiosWithAuth from '../axiosWithAuth.js/axiosWithAuth';
 import InstructorHeader from './InstructorHeader';
 
 const InstructorLogin = () => {
     const [instructorEmail, setInstructorEmail] = useState("");
     const [instructorPassword, setInstructorPassword] = useState("");
+    const userCredentials = {instructorEmail, instructorPassword};
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate("/instructordashboard");
+        axiosWithAuth().post('endpoint/here', userCredentials)
+        .then(res => {
+            console.log(res)
+            localStorage.setItem('token', res.data.token);
+            navigate("/instructordashboard");
+        })
+        .catch(err => {
+            console.log(err);
+        })
     }
 
     
@@ -27,7 +37,7 @@ const InstructorLogin = () => {
                             name="email" 
                             value={instructorEmail}
                             onChange={(e) => setInstructorEmail(e.target.value)}
-                            autocomplete="on"
+                            autoComplete="on"
                         />
                     </label>
                     <label>
@@ -37,7 +47,7 @@ const InstructorLogin = () => {
                             name="password" 
                             value={instructorPassword}
                             onChange={(e) => setInstructorPassword(e.target.value)}
-                            autocomplete="on"
+                            autoComplete="on"
                         />
                     </label>
                     <button type="submit">
