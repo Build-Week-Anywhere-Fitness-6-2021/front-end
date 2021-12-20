@@ -27,7 +27,7 @@ const InstructorLogin = () => {
   };
 
   return (
-    <div class="login-container">
+    <div className="login-container">
       <InstructorHeader />
       <form onSubmit={handleSubmit} className="form-container">
         <h1>Anywhere Fitness Instructors</h1>
