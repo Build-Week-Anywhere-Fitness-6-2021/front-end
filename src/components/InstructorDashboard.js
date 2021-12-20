@@ -10,7 +10,7 @@ const InstructorDashboard = () => {
             <InstructorHeader />
             <h1>Instructor Dashboard</h1>
             <Link to="/instructorclass"><button>Create a new class</button></Link>
-            <p>Map out list of created classes with the ability to edit or delete</p>
+            <p>Map out **mapped** list of created classes with the ability to edit or delete</p>
             
         </div>
     )
