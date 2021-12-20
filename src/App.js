@@ -8,6 +8,9 @@ import InstructorSignUp from "./components/InstructorSignUp";
 import SearchClasses from "./components/SearchClasses";
 import InstructorDashboard from "./components/InstructorDashboard";
 import InstructorClass from "./components/InstructorClass";
+import UserDashboard from "./components/UserDashboard";
+import Punchpass from "./components/Punchpass";
+import InstructorPunch from "./components/InstructorPunch";
 
 function App() {
   return (
@@ -26,6 +29,9 @@ function App() {
         />
         <Route exact path="/userdashboard" element={<UserDashboard />} />
         <Route exact path="/instructorclass" element={<InstructorClass />} />
+        <Route exact path="/userdashboard" element={<UserDashboard />} />
+        <Route exact path="/punchpass" element={<Punchpass />} />
+        <Route exact path="/createpunchpass" element={<InstructorPunch />} />
       </Routes>
     </div>
   );
