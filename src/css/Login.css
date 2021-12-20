@@ -1,0 +1,53 @@
+.login-container {
+  background-image: "../marketing/AnywhereFitness/images/pic01.jpg";
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #f58a07;
+  border-radius: 10px;
+  margin: 3rem auto;
+  padding: 3rem 0;
+  width: 30rem;
+  height: 50%;
+}
+
+.form-container h1,
+label,
+button {
+  margin-bottom: 1.4rem;
+}
+
+.form-container label {
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.form-container input {
+  width: 70%;
+  margin-bottom: 1.5rem;
+  height: 1.4rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #999999;
+  border-radius: 10px;
+}
+
+.form-container button {
+  width: 80%;
+  height: 2.4rem;
+  margin-top: 1rem;
+  background-color: #f58a07;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.form-container button:hover {
+  background-color: #dd7c06;
+}
