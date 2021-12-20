@@ -1,14 +1,17 @@
 import React from 'react'
 import { useState } from 'react';
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import InstructorHeader from './InstructorHeader';
 
 const InstructorLogin = () => {
     const [instructorEmail, setInstructorEmail] = useState("");
     const [instructorPassword, setInstructorPassword] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        navigate("/instructordashboard");
     }
 
     
