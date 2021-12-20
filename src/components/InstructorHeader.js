@@ -1,15 +1,15 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const InstructorHeader = () => {
     return (
         <div>
             <nav>
                 <h3>Anywhere Fitness</h3>
                 <ul >
                     <Link to="/">Home</Link>
-                    <Link to="/login" >Login</Link>
-                    <Link to="/signup" >Sign up</Link>
+                    <Link to="/instructorlogin" >Login</Link>
+                    <Link to="/instructorsignup" >Sign up</Link>
                     {/* <Link to="/login" >Class search</Link>
                     <Link to="/login" >Modify classes</Link> */}
                 </ul>
@@ -18,4 +18,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default InstructorHeader

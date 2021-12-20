@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
 import Landing from './components/Landing';
 import UserSignUp from "./components/UserSignUp";
 import UserLogin from "./components/UserLogin";

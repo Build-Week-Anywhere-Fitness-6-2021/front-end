@@ -1,11 +1,12 @@
 import React from 'react'
 import { useState } from 'react';
-import Header from './Header';
+import InstructorHeader from './InstructorHeader';
 
 const initialValues = [{
     firstName: "First name*",
     lastName: "Last name*",
     email: "Email address*",
+    instructorCode: "",
     password: "Password*"
 }];
 
@@ -16,7 +17,7 @@ const SignUp = () => {
 
     return (
         <div>
-            <Header />
+            <InstructorHeader />
             <form className='login'>
                 <h2>Create your account</h2>
                 <label>
@@ -26,6 +27,7 @@ const SignUp = () => {
                         name="firstName" 
                         value={values.firstName}
                         onChange={(e) => setValues(e.target.value)}
+                        autocomplete="on"
                     />
                 </label>
                 <label>
@@ -35,6 +37,7 @@ const SignUp = () => {
                         name="lastName" 
                         value={values.lastName}
                         onChange={(e) => setValues(e.target.value)}
+                        autocomplete="on"
                     />
                 </label>
                 <label>
@@ -44,6 +47,17 @@ const SignUp = () => {
                         name="email" 
                         value={values.email}
                         onChange={(e) => setValues(e.target.value)}
+                        autocomplete="on"
+                    />
+                </label>
+                <label>
+                    Instructor Authorization Code
+                    <input 
+                        type="password" 
+                        name="password" 
+                        value={values.instructorCode}
+                        onChange={(e) => setValues(e.target.value)}
+                        autocomplete="on"
                     />
                 </label>
                 <label>
@@ -53,6 +67,7 @@ const SignUp = () => {
                         name="password" 
                         value={values.password}
                         onChange={(e) => setValues(e.target.value)}
+                        autocomplete="on"
                     />
                 </label>
                 <button type="submit">

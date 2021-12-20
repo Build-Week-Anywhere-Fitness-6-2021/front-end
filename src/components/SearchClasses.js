@@ -1,10 +1,10 @@
 import React from 'react'
-import Header from './Header'
+import UserHeader from './UserHeader'
 
 const SearchClasses = () => {
     return (
         <div>
-            <Header />
+            <UserHeader />
             <h1>Awaken to a healthier, happier you.</h1>
             <h3>Discover a world of in-person and virtual fitness, wellness, and beauty services.</h3>
             <form>

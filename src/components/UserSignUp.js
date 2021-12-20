@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from './Header';
+import UserHeader from './UserHeader';
 import { useState } from 'react';
 
 const initialValues = [{
@@ -16,7 +16,7 @@ const SignUp = () => {
 
     return (
         <div>
-            <Header />
+            <UserHeader />
             <form className='login'>
                 <h2>Create your account</h2>
                 <label>
@@ -26,6 +26,7 @@ const SignUp = () => {
                         name="firstName" 
                         value={values.firstName}
                         onChange={(e) => setValues(e.target.value)}
+                        autocomplete="on"
                     />
                 </label>
                 <label>
@@ -35,6 +36,7 @@ const SignUp = () => {
                         name="lastName" 
                         value={values.lastName}
                         onChange={(e) => setValues(e.target.value)}
+                        autocomplete="on"
                     />
                 </label>
                 <label>
@@ -44,6 +46,7 @@ const SignUp = () => {
                         name="email" 
                         value={values.email}
                         onChange={(e) => setValues(e.target.value)}
+                        autocomplete="on"
                     />
                 </label>
                 <label>
@@ -53,6 +56,7 @@ const SignUp = () => {
                         name="password" 
                         value={values.password}
                         onChange={(e) => setValues(e.target.value)}
+                        autocomplete="on"
                     />
                 </label>
                 <button type="submit">

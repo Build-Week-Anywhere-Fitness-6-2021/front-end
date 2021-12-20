@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { Link } from "react-router-dom";
-import Header from './Header';
+import UserHeader from './UserHeader';
 
 const UserLogin = () => {
     const [userEmail, setUserEmail] = useState("");
@@ -14,7 +14,7 @@ const UserLogin = () => {
     
     return (
         <div>
-            <Header />
+            <UserHeader />
             <form onSubmit={handleSubmit} className="login">
                 <h1>Anywhere Fitness Members</h1>
                 <label>
@@ -24,6 +24,7 @@ const UserLogin = () => {
                         name="email" 
                         value={userEmail}
                         onChange={(e) => setUserEmail(e.target.value)}
+                        autocomplete="on"
                     />
                 </label>
                 <label>
@@ -33,6 +34,7 @@ const UserLogin = () => {
                         name="password" 
                         value={userPassword}
                         onChange={(e) => setUserPassword(e.target.value)}
+                        autocomplete="on"
                     />
                 </label>
                 <button type="submit">
