@@ -1,14 +1,13 @@
 import { Routes, Route } from "react-router-dom";
-import Landing from './components/Landing';
+import Landing from "./components/Landing";
 import UserSignUp from "./components/UserSignUp";
 import UserLogin from "./components/UserLogin";
+import UserDashboard from "./components/UserDashboard";
 import InstructorLogin from "./components/InstructorLogin";
 import InstructorSignUp from "./components/InstructorSignUp";
 import SearchClasses from "./components/SearchClasses";
 import InstructorDashboard from "./components/InstructorDashboard";
 import InstructorClass from "./components/InstructorClass";
-
-
 
 function App() {
   return (
@@ -20,7 +19,12 @@ function App() {
         <Route exact path="/usersignup" element={<UserSignUp />} />
         <Route exact path="/instructorsignup" element={<InstructorSignUp />} />
         <Route exact path="/searchclasses" element={<SearchClasses />} />
-        <Route exact path="/instructordashboard" element={<InstructorDashboard />} />
+        <Route
+          exact
+          path="/instructordashboard"
+          element={<InstructorDashboard />}
+        />
+        <Route exact path="/userdashboard" element={<UserDashboard />} />
         <Route exact path="/instructorclass" element={<InstructorClass />} />
       </Routes>
     </div>
