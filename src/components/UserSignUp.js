@@ -1,4 +1,5 @@
 import React from 'react'
+import Header from './Header';
 import { useState } from 'react';
 
 const initialValues = [{
@@ -15,6 +16,7 @@ const SignUp = () => {
 
     return (
         <div>
+            <Header />
             <form className='login'>
                 <h2>Create your account</h2>
                 <label>

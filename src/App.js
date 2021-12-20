@@ -5,6 +5,7 @@ import UserSignUp from "./components/UserSignUp";
 import UserLogin from "./components/UserLogin";
 import InstructorLogin from "./components/InstructorLogin";
 import InstructorSignUp from "./components/InstructorSignUp";
+import SearchClasses from "./components/SearchClasses";
 
 
 
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/instructorlogin" element={<InstructorLogin />} />
         <Route exact path="/usersignup" element={<UserSignUp />} />
         <Route exact path="/instructorsignup" element={<InstructorSignUp />} />
+        <Route exact path="/searchclasses" element={<SearchClasses />} />
       </Routes>
     </div>
   );

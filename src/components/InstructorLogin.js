@@ -38,7 +38,7 @@ const InstructorLogin = () => {
                     <button type="submit">
                         Login
                     </button>
-                    <p>Don't have an account?</p>
+                    <p>Don't have an account?</p><Link to="/instructorsignup">Sign up</Link>
             </form>
         </div>
     )

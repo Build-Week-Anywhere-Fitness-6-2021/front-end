@@ -8,7 +8,7 @@ const Landing = () => {
     return (
         <div className="container">
             <div className="user">
-                <button>SEARCH CLASSES</button>
+                <Link to="/searchclasses"><button>SEARCH CLASSES</button></Link>
                 <Link to="/userlogin">USER LOGIN</Link>
             </div>
             <div className="instructor">
