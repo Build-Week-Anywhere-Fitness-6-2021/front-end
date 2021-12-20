@@ -1,16 +1,20 @@
-import React from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import UserHeader from "./UserHeader";
+
+import React from 'react'
+import { useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
+import UserHeader from './UserHeader';
 import "../css/Login.css";
 
 const UserLogin = () => {
-  const [userEmail, setUserEmail] = useState("");
-  const [userPassword, setUserPassword] = useState("");
+    const [userEmail, setUserEmail] = useState("");
+    const [userPassword, setUserPassword] = useState("");
+    const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        navigate("/userdashboard");
+    }
+
 
   return (
     <div className="login-container">
