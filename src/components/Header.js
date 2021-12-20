@@ -1,18 +1,17 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 const Header = () => {
     return (
         <div>
-            <nav id="menu">
-                <ul class="links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="landing.html">Landing</a></li>
-                    <li><a href="generic.html">Generic</a></li>
-                    <li><a href="elements.html">Elements</a></li>
-                </ul>
-                <ul class="actions stacked">
-                    <li><a href="#" class="button primary fit">Get Started</a></li>
-                    <li><a href="#" class="button fit">Log In</a></li>
+            <nav>
+                <h3>Anywhere Fitness</h3>
+                <ul >
+                    <Link to="/">Home</Link>
+                    <Link to="/login" >Login</Link>
+                    <Link to="/signup" >Sign up</Link>
+                    {/* <Link to="/login" >Class search</Link>
+                    <Link to="/login" >Modify classes</Link> */}
                 </ul>
             </nav>
         </div>
