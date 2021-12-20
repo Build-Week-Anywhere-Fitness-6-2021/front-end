@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import InstructorHeader from './InstructorHeader';
 
 const initialValues = [{
@@ -12,13 +14,24 @@ const initialValues = [{
 
 const SignUp = () => {
     const [values, setValues] = useState(initialValues);
+    const navigate = useNavigate();
 
-
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios.post('endpoint/here', {values})
+        .then(res => {
+            console.log(res)
+            navigate("/instructorlogin");
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }
 
     return (
         <div>
             <InstructorHeader />
-            <form className='login'>
+            <form onSubmit={handleSubmit} className='login'>
                 <h2>Create your account</h2>
                 <label>
                     First Name
@@ -27,7 +40,7 @@ const SignUp = () => {
                         name="firstName" 
                         value={values.firstName}
                         onChange={(e) => setValues(e.target.value)}
-                        autocomplete="on"
+                        autoComplete="on"
                     />
                 </label>
                 <label>
@@ -37,7 +50,7 @@ const SignUp = () => {
                         name="lastName" 
                         value={values.lastName}
                         onChange={(e) => setValues(e.target.value)}
-                        autocomplete="on"
+                        autoComplete="on"
                     />
                 </label>
                 <label>
@@ -47,17 +60,17 @@ const SignUp = () => {
                         name="email" 
                         value={values.email}
                         onChange={(e) => setValues(e.target.value)}
-                        autocomplete="on"
+                        autoComplete="on"
                     />
                 </label>
                 <label>
                     Instructor Authorization Code
                     <input 
                         type="password" 
-                        name="password" 
+                        name="instructorCode" 
                         value={values.instructorCode}
                         onChange={(e) => setValues(e.target.value)}
-                        autocomplete="on"
+                        autoComplete="on"
                     />
                 </label>
                 <label>
@@ -67,7 +80,7 @@ const SignUp = () => {
                         name="password" 
                         value={values.password}
                         onChange={(e) => setValues(e.target.value)}
-                        autocomplete="on"
+                        autoComplete="on"
                     />
                 </label>
                 <button type="submit">
