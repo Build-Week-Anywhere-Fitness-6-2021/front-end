@@ -24,10 +24,23 @@
     margin-bottom: 1%;
 }
 
+.search-container form {
+    width: 40%;
+    padding: 1%;
+
+}
 
 .searchBtn {
     background: #e85815;
     border-color: transparent;
     color: #fff;
+    padding: 2% 3%;
+    margin-left: 1%;
 }
+
+.searchBox {
+    padding: 2% 3%;
+}
+
+
 

@@ -10,9 +10,10 @@ const SearchClasses = () => {
                 <h1>Awaken to a healthier, happier you.</h1>
                 <h3>Discover a world of in-person and virtual fitness, wellness, and beauty services.</h3>
                 <form>
-                    <label htmlFor="search"></label>
-                    <div className='searchBox'>
+                    <div>
+                        <label htmlFor="search"></label>
                         <input 
+                        className='searchBox'
                         placeholder='Search for classes'
                         type="text"/>
                         <button className="searchBtn" type="submit">Search</button>
