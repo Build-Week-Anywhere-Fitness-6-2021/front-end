@@ -1,0 +1,37 @@
+.header-container {
+    width: 100%;
+}
+
+.header-nav {
+    display: flex;
+    width: 60%;
+    justify-content: space-around;
+    align-items: center;
+    margin:0 auto;
+  }
+
+.logo img{
+    width: 200px;
+}
+
+.header-nav ul {
+    width:50%;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1% 1%;
+    text-transform: capitalize;
+}
+
+.header-nav a {
+    text-decoration: none;
+    padding: 5% 3%;
+    color: grey;
+    font-weight: bold;
+    transition: 0.1s;
+}
+
+.header-nav a:hover {
+    color: #F58A07;
+    border-bottom: 4px solid #F58A07;
+}

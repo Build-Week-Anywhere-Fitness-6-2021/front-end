@@ -1,0 +1,43 @@
+.search-header-container {
+    height: 500px;
+    background-image: url("https://images.pexels.com/photos/3076513/pexels-photo-3076513.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-size: cover;
+    background-position: 0px 40%;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1% auto;
+}
+
+.search-container h1 {
+    line-height: 1.2;
+    font-size: 50px;
+    margin: 0 0 1rem;
+}
+
+.search-container h3 {
+    line-height: 1.5;
+    font-size: 24px;
+    margin-bottom: 1%;
+}
+
+.search-container form {
+    width: 40%;
+    padding: 1%;
+
+}
+
+.searchBtn {
+    background: #e85815;
+    border-color: transparent;
+    color: #fff;
+    padding: 2% 3%;
+    margin-left: 1%;
+}
+
+.searchBox {
+    padding: 2% 3%;
+}
