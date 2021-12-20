@@ -1,8 +1,10 @@
+
 import React from 'react'
 import { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import UserHeader from './UserHeader';
 import axiosWithAuth from '../axiosWithAuth.js/axiosWithAuth';
+import "../css/Login.css";
 
 const UserLogin = () => {
     const [userEmail, setUserEmail] = useState("");
@@ -24,39 +26,35 @@ const UserLogin = () => {
         
     }
 
-    
-    return (
-        <div>
-            <UserHeader />
-            <form onSubmit={handleSubmit} className="login">
-                <h1>Anywhere Fitness Members</h1>
-                <label>
-                    Email Address
-                    <input 
-                        type="email" 
-                        name="email" 
-                        value={userEmail}
-                        onChange={(e) => setUserEmail(e.target.value)}
-                        autoComplete="on"
-                    />
-                </label>
-                <label>
-                    Password
-                    <input 
-                        type="password" 
-                        name="password" 
-                        value={userPassword}
-                        onChange={(e) => setUserPassword(e.target.value)}
-                        autoComplete="on"
-                    />
-                </label>
-                <button type="submit">
-                    Login
-                </button>
-                <p>Don't have an account?</p><Link to="/usersignup">Sign up</Link>
-            </form>
-        </div>
-    )
-}
+  return (
+    <div className="login-container">
+      <UserHeader />
+      <form onSubmit={handleSubmit} className="form-container">
+        <h1>Anywhere Fitness Members</h1>
+        <input
+          type="email"
+          name="email"
+          value={userEmail}
+          onChange={(e) => setUserEmail(e.target.value)}
+          autoComplete="on"
+          placeholder="Email Address"
+        />
+        <input
+          type="password"
+          name="password"
+          value={userPassword}
+          onChange={(e) => setUserPassword(e.target.value)}
+          autoComplete="on"
+          placeholder="Password"
+        />
+        <button type="submit">Login</button>
+        <p>Don't have an account?</p>
+        <Link to="/usersignup" className="link">
+          Sign up
+        </Link>
+      </form>
+    </div>
+  );
+};
 
-export default UserLogin
+export default UserLogin;
