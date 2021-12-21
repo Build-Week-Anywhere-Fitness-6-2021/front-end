@@ -1,12 +1,15 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import logo from "../../images/logo.png"
 
 const InstructorHeader = () => {
     return (
-        <div>
-            <nav>
-                <h3>Anywhere Fitness</h3>
-                <ul >
+        <div className="header-container">
+            <nav className="header-nav">
+                <div className="logo">
+                    <img src={logo} alt="logo" />
+                </div>
+                <ul>
                     <Link to="/">Home</Link>
                     <Link to="/instructorlogin" >Login</Link>
                     <Link to="/instructorsignup" >Sign up</Link>
