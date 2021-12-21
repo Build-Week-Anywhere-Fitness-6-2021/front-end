@@ -42,12 +42,17 @@
     position: absolute;
     z-index: 2;
     top: 0px;
-    text-decoration: none;
     left: 35%
 }
-.userLandingNav Link {
+.userLandingNav a {
     text-decoration: none;
-
+    color: grey;
+    font-weight: bold;
+    transition: 0.1s;
+}
+.userLandingNav a:hover {
+    color: #F58A07;
+    border-bottom: 4px solid #F58A07;
 }
 .userInfo {
     z-index: 2;
@@ -94,7 +99,16 @@
     text-decoration: none;
     right: 5%
 }
-
+.instructorLandingNav a {
+    text-decoration: none;
+    color: grey;
+    font-weight: bold;
+    transition: 0.1s;
+}
+.instructorLandingNav a:hover {
+    color: #F58A07;
+    border-bottom: 4px solid #F58A07;
+}
 .instructorInfo {
     z-index: 2;
     position: absolute;
@@ -106,7 +120,7 @@
     border-radius: 15%;
     box-shadow: 5px 5px 8px black;
 }
-.insdtructorInfo button {
+.instructorInfo button {
     margin-top: 5%;
     margin-left: 25%
 }
