@@ -14,7 +14,7 @@ import UserPrivateRoute from "./components/UserComponents/UserPrivateRoute";
 import InstructorLogin from "./components/InstructorComponents/InstructorLogin";
 import InstructorSignUp from "./components/InstructorComponents/InstructorSignUp";
 import InstructorDashboard from "./components/InstructorComponents/InstructorDashboard";
-import InstructorClass from "./components/InstructorComponents/InstructorClass";
+import InstructorClass from "./components/InstructorComponents/InstructorCreateClass";
 import InstructorPunch from "./components/InstructorComponents/InstructorPunch";
 import InstructorPrivateRoute from "./components/InstructorComponents/InstructorPrivateRoute";
 
