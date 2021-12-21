@@ -11,11 +11,12 @@ export default function ClassCard(props) {
     }
     return (
         searchArray.map((c, i) => {
-            return (
+            if(c.registered < c.maxsize){  return (
                 <div className="classCard">
                     <p>{c.name}</p> <p>{c.type}</p> <p>{c.start}</p> <p>{c.duration}</p> <p>{c.intensity}</p> <p>{c.location}</p> <p>Class Capacity: {c.registered}/{c.maxsize}</p>
+
                 </div>
-            )
+            )}
         })
 
     )
