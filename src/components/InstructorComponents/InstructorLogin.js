@@ -7,9 +7,9 @@ import InstructorHeader from "./InstructorHeader";
 import "../../css/Login.css";
 
 const InstructorLogin = () => {
-  const [instructorEmail, setInstructorEmail] = useState("");
+  const [instructorUsername, setInstructorUsername] = useState("");
   const [instructorPassword, setInstructorPassword] = useState("");
-  const userCredentials = { instructorEmail, instructorPassword };
+  const userCredentials = { instructorUsername, instructorPassword };
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -32,12 +32,12 @@ const InstructorLogin = () => {
       <form onSubmit={handleSubmit} className="form-container">
         <h1>Anywhere Fitness Instructors</h1>
         <input
-          type="email"
-          name="email"
-          value={instructorEmail}
-          onChange={(e) => setInstructorEmail(e.target.value)}
+          type="text"
+          name="username"
+          value={instructorUsername}
+          onChange={(e) => setInstructorUsername(e.target.value)}
           autoComplete="on"
-          placeholder="Email Address"
+          placeholder="Username"
         />
         <input
           type="password"
