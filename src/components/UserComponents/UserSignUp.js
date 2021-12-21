@@ -1,43 +1,54 @@
 import React from "react";
 import UserHeader from "./UserHeader";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../../css/SignUp.css";
 
-const initialValues = [
-  {
-    firstName: "First name*",
-    lastName: "Last name*",
-    username: "Username*",
-    email: "Email address*",
-    password: "Password*",
-  },
-];
 
 const SignUp = () => {
-  const [values, setValues] = useState(initialValues);
+  const [values, setValues] = useState(
+    {
+      user_id: "",
+      username: "",
+      password: "",
+      email: "",
+      role_id: "",
+      role: "",
+    }
+  );
   const navigate = useNavigate();
+  const userCredentials = { 
+    username: values.username,
+    password: values.password,
+    email: values.email
+   }
+
+  const handleChange = (e) =>{
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value
+    })
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("endpoint/here", { values })
+      .post("https://anywhere-fitness-6-2021.herokuapp.com/api/users", { userCredentials })
       .then((res) => {
         console.log(res);
-        navigate("/instructorlogin");
+        //navigate("/instructorlogin");
       })
       .catch((err) => {
         console.log(err);
       });
   };
-
   return (
     <div className="signUp-container">
       <UserHeader />
       <form onSubmit={handleSubmit} className="formSignUp-container">
         <h2>Sign Up</h2>
-        <input
+        {/* <input
           type="text"
           name="firstName"
           value={values.firstName}
@@ -52,12 +63,12 @@ const SignUp = () => {
           onChange={(e) => setValues(e.target.value)}
           autoComplete="on"
           placeholder="Last Name"
-        />
+        /> */}
         <input
           type="text"
           name="username"
           value={values.username}
-          onChange={(e) => setValues(e.target.value)}
+          onChange={handleChange}
           autoComplete="on"
           placeholder="Username"
         />
@@ -65,7 +76,7 @@ const SignUp = () => {
           type="email"
           name="email"
           value={values.email}
-          onChange={(e) => setValues(e.target.value)}
+          onChange={handleChange}
           autoComplete="on"
           placeholder="Email"
         />
@@ -73,7 +84,7 @@ const SignUp = () => {
           type="password"
           name="password"
           value={values.password}
-          onChange={(e) => setValues(e.target.value)}
+          onChange={handleChange}
           autoComplete="on"
           placeholder="Password"
         />

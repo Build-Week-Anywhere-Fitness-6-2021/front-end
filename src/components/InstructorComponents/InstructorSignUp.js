@@ -5,28 +5,40 @@ import { useNavigate } from "react-router-dom";
 import InstructorHeader from "./InstructorHeader";
 import "../../css/SignUp.css";
 
-const initialValues = [
-  {
-    firstName: "First name*",
-    lastName: "Last name*",
-    username: "Username*",
-    email: "Email address*",
-    instructorCode: "",
-    password: "Password*",
-  },
-];
-
 const SignUp = () => {
-  const [values, setValues] = useState(initialValues);
   const navigate = useNavigate();
+  const [values, setValues] = useState(
+    {
+      firstName: "",
+      lastName: "",
+      username: "",
+      email: "",
+      instructorCode: "",
+      password: "",
+    },
+  );
+  const userCredentials = { 
+    username: values.username,
+    password: values.password,
+    email: values.email,
+    instructorCode: values.instructorCode,
+   }
+  
+
+  const handleChange = (e) =>{
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value
+    })
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("endpoint/here", { values })
+      .post("https://anywhere-fitness-6-2021.herokuapp.com/api/users", { userCredentials })
       .then((res) => {
         console.log(res);
-        navigate("/instructorlogin");
+        //navigate("/instructorlogin");
       })
       .catch((err) => {
         console.log(err);
@@ -38,11 +50,11 @@ const SignUp = () => {
       <InstructorHeader />
       <form onSubmit={handleSubmit} className="formSignUp-container">
         <h2>Sign Up</h2>
-        <input
+        {/* <input
           type="text"
           name="firstName"
           value={values.firstName}
-          onChange={(e) => setValues(e.target.value)}
+          onChange={handleChange}
           autoComplete="on"
           placeholder="First Name"
         />
@@ -50,15 +62,15 @@ const SignUp = () => {
           type="text"
           name="lastName"
           value={values.lastName}
-          onChange={(e) => setValues(e.target.value)}
+          onChange={handleChange}
           autoComplete="on"
           placeholder="Last Name"
-        />
+        /> */}
         <input
           type="text"
           name="username"
           value={values.username}
-          onChange={(e) => setValues(e.target.value)}
+          onChange={handleChange}
           autoComplete="on"
           placeholder="Username"
         />
@@ -66,15 +78,15 @@ const SignUp = () => {
           type="email"
           name="email"
           value={values.email}
-          onChange={(e) => setValues(e.target.value)}
+          onChange={handleChange}
           autoComplete="on"
           placeholder="Email"
         />
         <input
           type="password"
-          name="password"
+          name="instructorCode"
           value={values.instructorCode}
-          onChange={(e) => setValues(e.target.value)}
+          onChange={handleChange}
           autoComplete="on"
           placeholder="Instructor Authorization Code"
         />
@@ -82,7 +94,7 @@ const SignUp = () => {
           type="password"
           name="password"
           value={values.password}
-          onChange={(e) => setValues(e.target.value)}
+          onChange={handleChange}
           autoComplete="on"
           placeholder="Password"
         />
