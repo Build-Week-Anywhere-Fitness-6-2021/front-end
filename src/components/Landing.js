@@ -1,6 +1,18 @@
 import React from 'react';
 import '../css/Landing.css';
 import { Link } from "react-router-dom";
+import { styled } from 'styled-components'
+
+const linkStyle = {
+    textDecoration: 'none',
+    color: 'grey',
+    fontWeight: 'bold',
+    transition: '0.1s',
+    '&:hover': {
+        color: '#F58A07',
+        borderBottom: '4px solid #F58A07',
+    }
+}
 
 
 const Landing = () => {
@@ -11,7 +23,7 @@ const Landing = () => {
             <div className="user">
             <div className='userBGI'></div>
                 <nav className='userLandingNav'>
-                <Link to="/userlogin"><p>USER LOGIN</p></Link>
+                <Link to="/userlogin" style={linkStyle}>USER LOGIN</Link>
                 </nav>
             <div className='userInfo'>
                 <h2>Find a class perfect for you!</h2>
@@ -23,7 +35,7 @@ const Landing = () => {
             <div className="instructor">
                 <div className='instructorBGI'></div>
                 <nav className='instructorLandingNav'>
-                    <Link to="/instructorlogin">INSTRUCTOR LOGIN</Link>
+                    <Link to="/instructorlogin" style={linkStyle}>INSTRUCTOR LOGIN</Link>
                 </nav>
                 <div className='instructorInfo'>
                     <h2>Explore our tools for <br/>creating the perfect course!</h2>
