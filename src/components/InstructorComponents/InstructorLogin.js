@@ -9,7 +9,7 @@ import "../../css/Login.css";
 const InstructorLogin = () => {
   const [instructorUsername, setInstructorUsername] = useState("");
   const [instructorPassword, setInstructorPassword] = useState("");
-  const userCredentials = { instructorUsername, instructorPassword };
+  const userCredentials = { email: instructorUsername, password: instructorPassword };
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
