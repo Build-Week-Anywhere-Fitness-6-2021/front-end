@@ -1,16 +1,16 @@
-import React from 'react'
-import UserHeader from './UserHeader';
-import { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import "../css/SignUp.css";
-
+import React from "react";
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import InstructorHeader from "./InstructorHeader";
+import "../../css/SignUp.css";
 
 const initialValues = [
   {
     firstName: "First name*",
     lastName: "Last name*",
     email: "Email address*",
+    instructorCode: "",
     password: "Password*",
   },
 ];
@@ -20,20 +20,21 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-        e.preventDefault();
-        axios.post('endpoint/here', {values})
-        .then(res => {
-            console.log(res)
-            navigate("/instructorlogin");
-        })
-        .catch(err => {
-            console.log(err);
-        })
-    }
+    e.preventDefault();
+    axios
+      .post("endpoint/here", { values })
+      .then((res) => {
+        console.log(res);
+        navigate("/instructorlogin");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="signUp-container">
-      <UserHeader />
+      <InstructorHeader />
       <form onSubmit={handleSubmit} className="formSignUp-container">
         <h2>Sign Up</h2>
         <input
@@ -59,6 +60,14 @@ const SignUp = () => {
           onChange={(e) => setValues(e.target.value)}
           autoComplete="on"
           placeholder="Email"
+        />
+        <input
+          type="password"
+          name="password"
+          value={values.instructorCode}
+          onChange={(e) => setValues(e.target.value)}
+          autoComplete="on"
+          placeholder="Instructor Authorization Code"
         />
         <input
           type="password"

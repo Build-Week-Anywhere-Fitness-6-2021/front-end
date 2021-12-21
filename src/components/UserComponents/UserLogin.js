@@ -1,30 +1,29 @@
-
-import React from 'react'
-import { useState } from 'react';
+import React from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import UserHeader from './UserHeader';
-import axiosWithAuth from '../axiosWithAuth.js/axiosWithAuth';
-import "../css/Login.css";
+import UserHeader from "./UserHeader";
+import axiosWithAuth from "../../axiosWithAuth.js/axiosWithAuth";
+import "../../css/Login.css";
 
 const UserLogin = () => {
-    const [userEmail, setUserEmail] = useState("");
-    const [userPassword, setUserPassword] = useState("");
-    const navigate = useNavigate();
-    const userCredentials = {userEmail, userPassword};
+  const [userEmail, setUserEmail] = useState("");
+  const [userPassword, setUserPassword] = useState("");
+  const navigate = useNavigate();
+  const userCredentials = { userEmail, userPassword };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        axiosWithAuth().post('endpoint/here', userCredentials)
-            .then(res => {
-                console.log(res)
-                localStorage.setItem('token', res.data.token);
-                navigate("/userdashboard");
-            })
-            .catch(err => {
-                console.log(err);
-            })
-        
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axiosWithAuth()
+      .post("endpoint/here", userCredentials)
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("token", res.data.token);
+        navigate("/userdashboard");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="login-container">

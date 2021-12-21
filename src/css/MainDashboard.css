@@ -1,0 +1,87 @@
+.main-dash * {
+  border: 1px solid black;
+}
+
+.main-dash > h1 {
+  height: 4rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  background-color: rgb(50, 50, 50);
+  color: white;
+}
+
+.main-dash-container {
+  display: flex;
+  height: 87vh;
+  background-color: whitesmoke;
+}
+
+.main-dash-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.main-dash-container > nav {
+  width: 12%;
+  background-color: rgb(7, 61, 115);
+  color: white;
+}
+
+.main-dash-container > nav > ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  padding: 0;
+}
+
+.main-dash-container > nav > ul > li {
+  list-style: none;
+}
+
+.main-dash-container > nav > ul > div {
+  list-style: none;
+  height: 15%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.main-dash-container > nav > ul > li,
+span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main-dash-container > nav > ul > li,
+span,
+svg {
+  height: 4rem;
+  width: 4rem;
+}
+
+.li-wrapper {
+  height: 10rem !important;
+}
+
+.li-wrapper,
+li {
+  display: flex;
+  justify-content: center;
+}
+
+.li-wrapper,
+li,
+span {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+}
