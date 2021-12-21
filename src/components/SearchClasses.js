@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import UserHeader from "./UserComponents/UserHeader";
+import classes from "../data/data"
 import "../css/SearchClasses.css";
 
 const SearchClasses = () => {
@@ -14,7 +15,7 @@ const SearchClasses = () => {
         console.log(err);
       });
   };
-
+  console.log(classes)
   return (
     <div className="search-header-container">
       <UserHeader />
@@ -38,6 +39,10 @@ const SearchClasses = () => {
             </button>
           </div>
         </form>
+      </div>
+      <div>
+        {/* List of classes */}
+        
       </div>
     </div>
   );
