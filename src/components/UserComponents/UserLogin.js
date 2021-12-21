@@ -6,15 +6,16 @@ import axiosWithAuth from "../../axiosWithAuth.js/axiosWithAuth";
 import "../../css/Login.css";
 
 const UserLogin = () => {
-  const [userEmail, setUserEmail] = useState("");
-  const [userPassword, setUserPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const userCredentials = { userEmail, userPassword };
+  const userCredentials = { email: email, password: password };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axiosWithAuth()
-      .post("endpoint/here", userCredentials)
+      .post("https://reqres.in/api/login", userCredentials)
+      // email: eve.holt@reqres.in password: cityslicka
       .then((res) => {
         console.log(res);
         localStorage.setItem("token", res.data.token);
@@ -33,16 +34,16 @@ const UserLogin = () => {
         <input
           type="email"
           name="email"
-          value={userEmail}
-          onChange={(e) => setUserEmail(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           autoComplete="on"
           placeholder="Email Address"
         />
         <input
           type="password"
           name="password"
-          value={userPassword}
-          onChange={(e) => setUserPassword(e.target.value)}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           autoComplete="on"
           placeholder="Password"
         />
