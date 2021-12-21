@@ -49,6 +49,17 @@ const classes = [
         registered: 3,
         maxsize: 8
     },
+    {
+        name: "Full class",
+        type: "class should not be rendered",
+        start: "3:00 p.m.",
+        duration: 60,
+        intensity: "high",
+        location: "east",
+        registered: 8,
+        maxsize: 8
+    },
+
 ]
 
 export default classes
