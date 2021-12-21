@@ -11,7 +11,7 @@ const Landing = () => {
             <div className="user">
             <div className='userBGI'></div>
                 <nav className='userLandingNav'>
-                <Link to="/userlogin"><p>USER LOGIN</p></Link>
+                <Link to="/userlogin">USER LOGIN</Link>
                 </nav>
             <div className='userInfo'>
                 <h2>Find a class perfect for you!</h2>
