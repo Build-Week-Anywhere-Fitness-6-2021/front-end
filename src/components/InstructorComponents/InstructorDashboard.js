@@ -20,7 +20,7 @@ const InstructorDashboard = () => {
         <nav>
           <ul>
             <li>
-              <Link to="/">
+              <Link to="/instructordashboard">
                 <span>
                   <AiFillHome />
                   <span>Home</span>
