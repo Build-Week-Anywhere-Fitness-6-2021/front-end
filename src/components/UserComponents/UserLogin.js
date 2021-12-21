@@ -6,10 +6,10 @@ import axiosWithAuth from "../../axiosWithAuth.js/axiosWithAuth";
 import "../../css/Login.css";
 
 const UserLogin = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [userPassword, setUserPassword] = useState("");
   const navigate = useNavigate();
-  const userCredentials = { email: email, password: password };
+  const userCredentials = { username, userPassword };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,18 +32,18 @@ const UserLogin = () => {
       <form onSubmit={handleSubmit} className="form-container">
         <h1>Anywhere Fitness Members</h1>
         <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          type="text"
+          name="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           autoComplete="on"
-          placeholder="Email Address"
+          placeholder="Username"
         />
         <input
           type="password"
           name="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={userPassword}
+          onChange={(e) => setUserPassword(e.target.value)}
           autoComplete="on"
           placeholder="Password"
         />

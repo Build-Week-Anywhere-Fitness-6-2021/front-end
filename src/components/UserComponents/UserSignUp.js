@@ -9,6 +9,7 @@ const initialValues = [
   {
     firstName: "First name*",
     lastName: "Last name*",
+    username: "Username*",
     email: "Email address*",
     password: "Password*",
   },
@@ -51,6 +52,14 @@ const SignUp = () => {
           onChange={(e) => setValues(e.target.value)}
           autoComplete="on"
           placeholder="Last Name"
+        />
+        <input
+          type="text"
+          name="username"
+          value={values.username}
+          onChange={(e) => setValues(e.target.value)}
+          autoComplete="on"
+          placeholder="Username"
         />
         <input
           type="email"
