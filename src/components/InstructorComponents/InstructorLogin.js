@@ -7,15 +7,16 @@ import InstructorHeader from "./InstructorHeader";
 import "../../css/Login.css";
 
 const InstructorLogin = () => {
-  const [instructorEmail, setInstructorEmail] = useState("");
-  const [instructorPassword, setInstructorPassword] = useState("");
-  const userCredentials = { instructorEmail, instructorPassword };
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const userCredentials = { email: email, password: password };
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axiosWithAuth()
-      .post("endpoint/here", userCredentials)
+      .post("https://reqres.in/api/login", userCredentials)
+      // email: eve.holt@reqres.in password: cityslicka
       .then((res) => {
         console.log(res);
         localStorage.setItem("token", res.data.token);
@@ -34,16 +35,16 @@ const InstructorLogin = () => {
         <input
           type="email"
           name="email"
-          value={instructorEmail}
-          onChange={(e) => setInstructorEmail(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           autoComplete="on"
           placeholder="Email Address"
         />
         <input
           type="password"
           name="password"
-          value={instructorPassword}
-          onChange={(e) => setInstructorPassword(e.target.value)}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           autoComplete="on"
           placeholder="Password"
         />
