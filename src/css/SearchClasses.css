@@ -5,6 +5,9 @@
     background-position: 0px 40%;
 }
 
+.search-page-container {
+    font-family: 'Rubik', sans-serif;
+}
 .search-container {
     display: flex;
     flex-direction: column;
@@ -40,4 +43,27 @@
 
 .searchBox {
     padding: 2% 3%;
+}
+
+p {
+    text-transform: capitalize;
+}
+
+.classCard {
+    border: 1px solid #F58A07;
+    text-align: center;
+    width: 30%;
+    margin: 1.5% 35%;
+    border-radius: 50%;
+    box-shadow: 5px 5px 8px #F58A07;
+    padding: 3%;
+}
+.classCards {
+    display: flex;
+    flex-wrap: wrap;
+    border-left: 1px solid #F58A07;
+    border-right: 1px solid #F58A07;
+    margin-left: 20%;
+    margin-right: 20%;
+    box-shadow: 5px 5px 100px #F58A07;
 }

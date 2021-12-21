@@ -1,22 +1,32 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import UserHeader from "./UserComponents/UserHeader";
-import classes from "../data/data"
+import classes from "../data/data";
 import "../css/SearchClasses.css";
+import ClassCard from "./UserComponents/ClassCard";
 
 const SearchClasses = () => {
+  const [searchValue, setSearchValue] = useState('')
   const handleSubmit = () => {
-    axios
-      .get("https://pokeapi.co/api/v2/pokemon/ditto")
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+
+    // axios
+    //   .get("https://pokeapi.co/api/v2/pokemon/ditto")
+    //   .then((res) => {
+    //     console.log(res.data, 'test');
+    //   })
+    //   .catch((err) => {
+    //     console.log(err, 'err');
+    //   });
   };
-  console.log(classes)
+
+
+  const onChange = evt => {
+    const { value } = evt.target
+    setSearchValue(value)
+  }
+
   return (
+    <div className="search-page-container">
     <div className="search-header-container">
       <UserHeader />
 
@@ -30,9 +40,12 @@ const SearchClasses = () => {
           <div>
             <label htmlFor="search"></label>
             <input
+              value={searchValue}
+              name='classSearch'
               className="searchBox"
               placeholder="Search for classes"
               type="text"
+              onChange={onChange}
             />
             <button className="searchBtn" type="submit">
               Search
@@ -40,11 +53,14 @@ const SearchClasses = () => {
           </div>
         </form>
       </div>
-      <div>
-        {/* List of classes */}
-        
-      </div>
+
     </div>
+          <div className="classCards">
+          <ClassCard searchResult={searchValue}/>
+          {/* List of classes */}
+          
+        </div>
+        </div>
   );
 };
 
