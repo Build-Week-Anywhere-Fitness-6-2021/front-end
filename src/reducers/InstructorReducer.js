@@ -1,15 +1,20 @@
-// Actions
-// classes data
+import { CREATE_CLASS } from "./Actions/InstructorActions";
+
+import classes from "../data/data";
 
 const initialState = {
   classes: [],
+  numberOfClasses: 0,
 };
 
-const classReducer = (state = initialState, action) => {
+const InstructorReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "CREATE_CLASS":
+    case CREATE_CLASS:
       return {
         //   Add a new class that SearchClasses.js and InstructorDashboard.js can access
+        ...state,
+        classes: [...state.classes, action.payload],
+        numberOfClasses: (state.classes.length += 1),
       };
     case "EDIT_CLASS":
       return {
@@ -25,4 +30,4 @@ const classReducer = (state = initialState, action) => {
   }
 };
 
-export default classReducer;
+export default InstructorReducer;

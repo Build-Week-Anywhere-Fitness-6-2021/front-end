@@ -13,7 +13,7 @@ const initialCredentials = {
   maxNumberOfClassSize: "",
 };
 
-const InstructorForm = (props) => {
+const EditForm = (props) => {
   const [credentials, setCredentials] = useState(initialCredentials);
 
   const handleChange = (e) => {
@@ -28,7 +28,7 @@ const InstructorForm = (props) => {
 
   return (
     <div id="instructor-form-container">
-      <h2>{props.name} Class</h2>
+      <h2>Edit Class</h2>
       <form id="instructor-form">
         <label>
           Name:
@@ -62,9 +62,11 @@ const InstructorForm = (props) => {
           Max Number of Class Size:
           <input onChange={handleChange} name="maxNumberOfClassSize" />
         </label>
+
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
 };
 
-export default InstructorForm;
+export default EditForm;

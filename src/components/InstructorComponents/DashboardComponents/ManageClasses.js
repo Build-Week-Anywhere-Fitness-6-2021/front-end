@@ -1,9 +1,14 @@
-import { useState } from "react";
-import InstructorForm from "./Form";
+import { useEffect, useState } from "react";
+
+import { connect } from "react-redux";
+
+import AddForm from "./AddForm";
+import EditForm from "./EditForm";
+import DeleteForm from "./DeleteForm";
 
 import "../../../css/InstructorForm.css";
 
-const ManageClasses = () => {
+const ManageClasses = (props) => {
   const [selectedClass, setSelectedClass] = useState("");
 
   const handleClick = (e) => {
@@ -19,6 +24,7 @@ const ManageClasses = () => {
 
   return (
     <div className="main-dash-content">
+      {/* If selectedClass is falsey, render options to click */}
       {selectedClass === "" ? (
         <>
           <h1>Manage Classes</h1>
@@ -34,11 +40,27 @@ const ManageClasses = () => {
         </>
       ) : null}
 
+      {/* Is selectedClass truthy, check value of selectedClass */}
       {selectedClass ? (
         <>
-          {selectedClass === "add" ? <InstructorForm name="Add" /> : null}
-          {selectedClass === "edit" ? <InstructorForm name="Edit" /> : null}
-          {selectedClass === "delete" ? <InstructorForm name="Delete" /> : null}
+          {/* If selectedClass === "add", render add form */}
+          {selectedClass === "add" ? <AddForm /> : null}
+
+          {/* If selectedClass === "edit", check if numberOfClasses is truthy (numberOfClasses > 0) */}
+          {selectedClass === "edit" ? (
+            <>
+              {/*If so, render list of classes to select from. If not, render edit form  */}
+              {props.numberOfClasses ? <p>List Of Classes</p> : <EditForm />}
+            </>
+          ) : null}
+
+          {/* If selectedClass === "delete", check if numberOfClasses is truthy (numberOfClasses > 0) */}
+          {selectedClass === "delete" ? (
+            <>
+              {/*If so, render list of classes to select from. If not, render delete form  */}
+              {props.numberOfClasses ? <p>List Of Classes</p> : <DeleteForm />}
+            </>
+          ) : null}
           <button onClick={handleBackButton}>Go Back</button>
         </>
       ) : null}
@@ -46,4 +68,11 @@ const ManageClasses = () => {
   );
 };
 
-export default ManageClasses;
+const mapStateToProps = (state) => {
+  return {
+    classes: state.classes,
+    numberOfClasses: state.numberOfClasses,
+  };
+};
+
+export default connect(mapStateToProps, {})(ManageClasses);
