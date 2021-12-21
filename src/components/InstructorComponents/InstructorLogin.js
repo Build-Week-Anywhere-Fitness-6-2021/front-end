@@ -15,7 +15,8 @@ const InstructorLogin = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axiosWithAuth()
-      .post("endpoint/here", userCredentials)
+      .post("https://reqres.in/api/login", userCredentials)
+      // email: eve.holt@reqres.in password: cityslicka
       .then((res) => {
         console.log(res);
         localStorage.setItem("token", res.data.token);
