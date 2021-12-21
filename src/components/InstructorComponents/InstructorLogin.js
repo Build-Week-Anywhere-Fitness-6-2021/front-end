@@ -2,9 +2,9 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import axiosWithAuth from "../axiosWithAuth.js/axiosWithAuth";
+import axiosWithAuth from "../../axiosWithAuth.js/axiosWithAuth";
 import InstructorHeader from "./InstructorHeader";
-import "../css/Login.css";
+import "../../css/Login.css";
 
 const InstructorLogin = () => {
   const [instructorEmail, setInstructorEmail] = useState("");
