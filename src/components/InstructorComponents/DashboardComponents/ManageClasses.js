@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 
 import { connect } from "react-redux";
 
-import AddForm from "./AddForm";
-import EditForm from "./EditForm";
-import DeleteForm from "./DeleteForm";
+import AddForm from "./Forms/AddForm";
+import EditForm from "./Forms/EditForm";
+import DeleteForm from "./Forms/DeleteForm";
+import ListOfClasses from "./ListOfClasses";
 
 import "../../../css/InstructorForm.css";
 
@@ -50,7 +51,7 @@ const ManageClasses = (props) => {
           {selectedClass === "edit" ? (
             <>
               {/*If so, render list of classes to select from. If not, render edit form  */}
-              {props.numberOfClasses ? <p>List Of Classes</p> : <EditForm />}
+              {props.numberOfClasses ? <ListOfClasses /> : <EditForm />}
             </>
           ) : null}
 
@@ -58,7 +59,7 @@ const ManageClasses = (props) => {
           {selectedClass === "delete" ? (
             <>
               {/*If so, render list of classes to select from. If not, render delete form  */}
-              {props.numberOfClasses ? <p>List Of Classes</p> : <DeleteForm />}
+              {props.numberOfClasses ? <ListOfClasses /> : <DeleteForm />}
             </>
           ) : null}
           <button onClick={handleBackButton}>Go Back</button>
