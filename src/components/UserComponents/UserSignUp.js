@@ -5,41 +5,55 @@ import axios from "axios";
 import axiosWithAuth from "../../axiosWithAuth.js/axiosWithAuth";
 import { useNavigate } from "react-router-dom";
 import "../../css/SignUp.css";
+import * as yup from "yup";
+import { userSignUpSchema } from "./UserFormSchema";
 
+const initialFormErrors = {
+  name: "",
+};
 
 const SignUp = () => {
-  const [values, setValues] = useState(
-    {
-      user_id: "",
-      username: "",
-      password: "",
-      email: "",
-      role_id: "",
-      role: "",
-    }
-  );
+  const [formErrors, setFormErrors] = useState(initialFormErrors);
+  const [disabled, setDisabled] = useState(false);
+  const [values, setValues] = useState({
+    user_id: "",
+    username: "",
+    password: "",
+    email: "",
+    role_id: "",
+    role: "",
+  });
   const navigate = useNavigate();
-  const userCredentials = { 
+  const userCredentials = {
     email: values.email,
     username: values.username,
     password: values.password,
-    
-    // role_id: 1
-   }
 
-  const handleChange = (e) =>{
+    // role_id: 1
+  };
+
+  const validateForm = (name, value) => {
+    yup
+      .reach(userSignUpSchema, name)
+      .validate(value)
+      .then(() => setFormErrors({ ...formErrors, [name]: "" }))
+      .catch((err) => setFormErrors({ ...formErrors, [name]: err.errors[0] }));
+  };
+
+  const handleChange = (e) => {
+    validateForm(e.target.name, e.target.value);
     setValues({
       ...values,
-      [e.target.name]: e.target.value
-    })
-  }
-
-
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axiosWithAuth()
-      .post('https://anywhere-fitness-6-2021.herokuapp.com/api/users', { userCredentials })
+      .post("https://anywhere-fitness-6-2021.herokuapp.com/api/users", {
+        userCredentials,
+      })
       .then((res) => {
         console.log(res);
         //navigate("/userlogin");
@@ -48,6 +62,11 @@ const SignUp = () => {
         console.log(err);
       });
   };
+
+  useEffect(() => {
+    userSignUpSchema.isValid(values).then((valid) => setDisabled(!valid));
+  }, [values]);
+
   return (
     <div className="signUp-container">
       <UserHeader />
@@ -69,6 +88,7 @@ const SignUp = () => {
           autoComplete="on"
           placeholder="Last Name"
         /> */}
+        <p className="required">{formErrors.username}</p>
         <input
           type="text"
           name="username"
@@ -77,6 +97,7 @@ const SignUp = () => {
           autoComplete="on"
           placeholder="Username"
         />
+        <p className="required">{formErrors.email}</p>
         <input
           type="email"
           name="email"
@@ -85,6 +106,7 @@ const SignUp = () => {
           autoComplete="on"
           placeholder="Email"
         />
+        <p className="required">{formErrors.password}</p>
         <input
           type="password"
           name="password"
@@ -93,7 +115,9 @@ const SignUp = () => {
           autoComplete="on"
           placeholder="Password"
         />
-        <button type="submit">Create Account</button>
+        <button type="submit" disabled={disabled}>
+          Create Account
+        </button>
       </form>
     </div>
   );
