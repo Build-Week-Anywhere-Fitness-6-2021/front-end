@@ -50,9 +50,9 @@ const AddClasses = () => {
   return (
     <div className="user-dash-content">
       {
-        classesData.map((classInfo, idx) =>{
+        classesData.map((currentClass, idx) =>{
           return (
-            < ClassInfo key={idx} details={classInfo} />
+            < ClassInfo key={idx} details={currentClass} />
           )
         })
       }
