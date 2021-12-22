@@ -1,4 +1,4 @@
-const classes = [
+const classList = [
     {
         name: "Fart Yoga",
         type: "yoga",
@@ -62,4 +62,4 @@ const classes = [
 
 ]
 
-export default classes
+export default classList

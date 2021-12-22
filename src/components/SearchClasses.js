@@ -1,32 +1,50 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import UserHeader from "./UserComponents/UserHeader";
-import classes from "../data/data";
+import classList from "../data/data";
 import "../css/SearchClasses.css";
 import ClassCard from "./UserComponents/ClassCard";
 
+
+
 const SearchClasses = () => {
   const [searchValue, setSearchValue] = useState('');
-  const [classes, setClasses] = useState([]);
+  const [search, setSearch] = useState(false);
+  // const [classes, setClasses] = useState(classList);
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .get("https://pokeapi.co/api/v2/pokemon/?limit=20&offset=20")
-      .then((res) => {
-        console.log(res.data.results, 'test');
-        setClasses(res.data.results)
-      })
-      .catch((err) => {
-        console.log(err, 'err');
-      });
+    setSearch(true);
+    // axios
+    //   .get("https://pokeapi.co/api/v2/pokemon/?limit=20&offset=20")
+    //   .then((res) => {
+    //     console.log(res.data.results, 'test');
+    //     setClasses(res.data.results)
+    //   })
+    //   .catch((err) => {
+    //     console.log(err, 'err');
+    //   });
   };
 
 
   const onChange = evt => {
     const { value } = evt.target
     setSearchValue(value)
+    setSearch(false);
   }
 
+  const searchResults = () => {
+    <div className="classCards">
+    {classList.filter((val) => {
+      if (searchValue === "") {
+        return null
+      } else if (val.name.toLowerCase().includes(searchValue.toLocaleLowerCase())) {
+        return val
+      }
+    }).map((item, key) => {
+      return <ClassCard key={key} class={item} />
+    })}    
+    </div>
+  }
   return (
     <div className="search-page-container">
       <div className="search-header-container">
@@ -56,12 +74,31 @@ const SearchClasses = () => {
           </form>
         </div>
       </div>
+      {search ?     
+        <div className="classCards">
+          {classList.filter((val) => {
+            if (searchValue === "") {
+              return null
+            } else if (val.name.toLowerCase().includes(searchValue.toLocaleLowerCase())) {
+              return val
+            }
+          }).map((item, key) => {
+            return <ClassCard key={key} class={item} />
+          })}    
+        </div> 
+      : null}
       {/* <div className="classCards">
-            <ClassCard searchResult={searchValue} />
+        {classList.filter((val) => {
+          if (searchValue === "") {
+            return null
+          } else if (val.name.toLowerCase().includes(searchValue.toLocaleLowerCase())) {
+            return val
+          }
+        }).map((item, key) => {
+          return <ClassCard key={key} class={item} />
+        })}    
       </div> */}
-      {classes.map(pokemon => (
-              <div key={pokemon.name} className="classCards">{pokemon.name}</div>
-            ))}
+
     </div>
   );
 };
