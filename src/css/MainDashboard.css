@@ -38,21 +38,43 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 25%;
-  background-color: lightsalmon;
+  width: 300px;
   font-size: 0.9rem;
   margin: 50px auto;
-  height: 30%;
+  height: auto;
+  max-height: 30%;
   padding: 2%;
+  border: 2px solid #F58A07;
+  box-shadow: 1px 1px 10px 8px #F9AB55;
+  border-radius: 10%;
+}
+
+.class-container:hover {
+  background-color: white;
+}
+
+.class-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1%;
+  font-weight: bold;
 }
 
 .class-container p {
-  padding: 1% 10%;
+  width: 100%;
+  padding: 1%;
+  text-align: center;
 }
 
 .class-container button {
   margin: 1%;
   padding: 1% 2%;
+  border-radius: 10%;
+  color: #F7F5FB;
+  background-color: #084887;
+  font-weight: bold;
+}
+.class-container button:hover {
+  background-color: #F58A07;
 }
 
 #class-list-container {
