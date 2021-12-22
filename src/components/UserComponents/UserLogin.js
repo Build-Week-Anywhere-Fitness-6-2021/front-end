@@ -9,7 +9,7 @@ const UserLogin = () => {
   const [username, setUsername] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const navigate = useNavigate();
-  const userCredentials = { username, userPassword };
+  const userCredentials = { email: username, password: userPassword };
 
   const handleSubmit = (e) => {
     e.preventDefault();

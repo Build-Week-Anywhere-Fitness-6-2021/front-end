@@ -28,7 +28,7 @@ const UserDashboard = () => {
                 <Link to="/userdashboard/classes">
                   <span>
                     <AiOutlinePlus />
-                    <span>Add Classes</span>
+                    <span>Manage Classes</span>
                   </span>
                 </Link>
               </li>
