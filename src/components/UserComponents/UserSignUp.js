@@ -2,6 +2,7 @@ import React from "react";
 import UserHeader from "./UserHeader";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import axiosWithAuth from "../../axiosWithAuth.js/axiosWithAuth";
 import { useNavigate } from "react-router-dom";
 import "../../css/SignUp.css";
 
@@ -31,17 +32,20 @@ const SignUp = () => {
     })
   }
 
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post("https://anywhere-fitness-6-2021.herokuapp.com/api/users", { userCredentials })
-      .then((res) => {
-        console.log(res);
-        //navigate("/instructorlogin");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // axiosWithAuth()
+    //   .post('https://still-everglades-90046.herokuapp.com/https://anywhere-fitness-6-2021.herokuapp.com/api/users', { userCredentials })
+    //   .then((res) => {
+    //     console.log(res);
+    //     //navigate("/instructorlogin");
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+      navigate("/instructorlogin");
   };
   return (
     <div className="signUp-container">

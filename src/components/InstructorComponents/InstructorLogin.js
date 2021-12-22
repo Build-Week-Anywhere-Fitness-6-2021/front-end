@@ -14,17 +14,18 @@ const InstructorLogin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axiosWithAuth()
-      .post("https://reqres.in/api/login", userCredentials)
-      // email: eve.holt@reqres.in password: cityslicka
-      .then((res) => {
-        console.log(res);
-        localStorage.setItem("token", res.data.token);
-        navigate("/instructordashboard");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // axiosWithAuth()
+    //   .post("https://reqres.in/api/login", userCredentials)
+    //   // email: eve.holt@reqres.in password: cityslicka
+    //   .then((res) => {
+    //     console.log(res);
+    //     localStorage.setItem("token", res.data.token);
+    //     navigate("/instructordashboard");
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+      navigate("/instructordashboard");
   };
 
   return (

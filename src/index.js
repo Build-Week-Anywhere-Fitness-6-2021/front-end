@@ -5,10 +5,10 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
-
 import InstructorReducer from "./reducers/InstructorReducer";
-
 import logger from "redux-logger";
+
+
 
 const store = createStore(InstructorReducer, applyMiddleware(logger));
 

@@ -34,15 +34,16 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post("https://anywhere-fitness-6-2021.herokuapp.com/api/users", { userCredentials })
-      .then((res) => {
-        console.log(res);
-        //navigate("/instructorlogin");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // axios
+    //   .post("https://anywhere-fitness-6-2021.herokuapp.com/api/users", { userCredentials })
+    //   .then((res) => {
+    //     console.log(res);
+    //     navigate("/instructorlogin");
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+      navigate("/instructorlogin");
   };
 
   return (
