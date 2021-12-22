@@ -36,18 +36,23 @@ const ManageClasses = (props) => {
   return (
     <div className="main-dash-content">
       {selectedClass === "" ? (
-        <>
+        <div id="manage-classes-div">
           <h1>Manage Classes</h1>
-          <p onClick={handleClick} name="addClass" value="add">
-            Add Class
-          </p>
-          <p onClick={handleClick} name="editClass" value="edit">
-            Edit Class
-          </p>
-          <p onClick={handleClick} name="deleteClass" value="delete">
-            Delete Class
-          </p>
-        </>
+          {/* <hr></hr> */}
+          <ul>
+            <li onClick={handleClick} name="addClass" value="add">
+              Add Class
+            </li>
+            <hr></hr>
+            <li onClick={handleClick} name="editClass" value="edit">
+              Edit Class
+            </li>
+            <hr></hr>
+            <li onClick={handleClick} name="deleteClass" value="delete">
+              Delete Class
+            </li>
+          </ul>
+        </div>
       ) : null}
 
       {selectedClass ? (

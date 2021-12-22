@@ -1,5 +1,5 @@
 .main-dash * {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   font-family: "Open Sans", sans-serif;
 }
 
@@ -18,13 +18,63 @@
   background-color: whitesmoke;
 }
 
+#manage-classes-div {
+  height: 100%;
+}
+
+#manage-classes-div > h1 {
+  padding: 2rem 3.5rem;
+  font-size: 1.8rem;
+  color: rgba(0, 0, 0, 0.422);
+  font-weight: 100;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* #manage-classes-div > hr {
+  border: none;
+  border-top: 2px solid rgba(0, 0, 0, 0.2);
+  width: 85%;
+  margin: auto;
+} */
+
+#manage-classes-div > ul {
+  margin: auto;
+  margin-top: 2rem;
+  width: 35%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 1rem 0.5rem 1rem rgba(0, 0, 0, 0.05);
+  border-radius: 1rem;
+  background-color: white;
+}
+
+#manage-classes-div > ul > hr {
+  width: 100%;
+  margin: auto;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#manage-classes-div > ul > li {
+  height: 100%;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  padding: 0 3rem;
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: bold;
+}
+
 .main-dash-content {
   display: flex;
   flex-direction: column;
   width: 100%;
-  /* justify-content: center;
-  align-items: center;
-   */
+  justify-content: center;
+  /* align-items: center; */
 }
 
 .user-dash-content {
@@ -44,8 +94,8 @@
   height: auto;
   max-height: 30%;
   padding: 2%;
-  border: 2px solid #F58A07;
-  box-shadow: 1px 1px 10px 8px #F9AB55;
+  border: 2px solid #f58a07;
+  box-shadow: 1px 1px 10px 8px #f9ab55;
   border-radius: 10%;
 }
 
@@ -69,12 +119,12 @@
   margin: 1%;
   padding: 1% 2%;
   border-radius: 10%;
-  color: #F7F5FB;
+  color: #f7f5fb;
   background-color: #084887;
   font-weight: bold;
 }
 .class-container button:hover {
-  background-color: #F58A07;
+  background-color: #f58a07;
 }
 
 #class-list-container {
@@ -103,6 +153,7 @@
   align-items: center;
   box-shadow: 0.25rem 0.5rem 1rem rgba(0, 0, 0, 0.15);
   cursor: pointer;
+  background-color: white;
 }
 
 .class-list-elem > #group-1 {
