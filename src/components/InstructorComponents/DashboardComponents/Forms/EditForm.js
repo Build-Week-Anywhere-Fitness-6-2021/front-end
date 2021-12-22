@@ -8,22 +8,18 @@ const initialCredentials = {
   id: "",
   name: "",
   type: "",
-  startTime: "",
+  start: 0,
   duration: "",
-  intensityLevel: "",
+  intensity: "",
   location: "",
-  currentNumberOfClassSize: "",
-  maxNumberOfClassSize: "",
+  registered: 0,
+  maxsize: 0,
 };
 
 const EditForm = (props) => {
   const { cardData } = props;
 
   const [credentials, setCredentials] = useState(initialCredentials);
-
-  useEffect(() => {
-    setCredentials(cardData);
-  }, []);
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -39,6 +35,10 @@ const EditForm = (props) => {
     e.preventDefault();
     props.editClass(credentials);
   };
+
+  useEffect(() => {
+    setCredentials(cardData);
+  }, []);
 
   return (
     <div id="instructor-form-container">
@@ -56,8 +56,8 @@ const EditForm = (props) => {
           Start Time:
           <input
             onChange={handleChange}
-            name="startTime"
-            value={credentials.startTime}
+            name="start"
+            value={credentials.start}
           />
         </label>
         <label>
@@ -72,8 +72,8 @@ const EditForm = (props) => {
           Intensity Level:
           <input
             onChange={handleChange}
-            name="intensityLevel"
-            value={credentials.intensityLevel}
+            name="intensity"
+            value={credentials.intensity}
           />
         </label>
         <label>
@@ -85,15 +85,19 @@ const EditForm = (props) => {
           />
         </label>
         <label>
-          Current Number of Class Size:
-          <p></p>
+          Current Number Registered:
+          <input
+            onChange={handleChange}
+            name="registered"
+            value={credentials.registered}
+          />
         </label>
         <label>
           Max Number of Class Size:
           <input
             onChange={handleChange}
-            name="maxNumberOfClassSize"
-            value={credentials.maxNumberOfClassSize}
+            name="maxsize"
+            value={credentials.maxsize}
           />
         </label>
 

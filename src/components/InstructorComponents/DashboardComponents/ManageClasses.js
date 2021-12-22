@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { connect } from "react-redux";
+import { createClass } from "../../../actions/InstructorActions";
 
 import AddForm from "./Forms/AddForm";
 import ListOfClasses from "./ListOfClasses";
 
+import classList from "../../../data/data";
+
 import "../../../css/InstructorForm.css";
+
+import { nanoid } from "nanoid";
 
 const ManageClasses = (props) => {
   const [selectedClass, setSelectedClass] = useState("");
@@ -20,6 +25,13 @@ const ManageClasses = (props) => {
   const handleBackButton = () => {
     setSelectedClass("");
   };
+
+  //  Using dummy data provided in src
+  useEffect(() => {
+    classList.forEach((obj) => {
+      props.createClass({ ...obj, id: nanoid(5) });
+    });
+  }, []);
 
   return (
     <div className="main-dash-content">
@@ -75,4 +87,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {})(ManageClasses);
+export default connect(mapStateToProps, { createClass })(ManageClasses);
