@@ -10,12 +10,9 @@ import "../../css/SignUp.css";
 const SignUp = () => {
   const [values, setValues] = useState(
     {
-      user_id: "",
       username: "",
       password: "",
       email: "",
-      role_id: "",
-      role: "",
     }
   );
   const navigate = useNavigate();
@@ -23,8 +20,6 @@ const SignUp = () => {
     email: values.email,
     username: values.username,
     password: values.password,
-    
-    // role_id: 1
    }
 
   const handleChange = (e) =>{
@@ -34,15 +29,14 @@ const SignUp = () => {
     })
   }
 
-
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    axiosWithAuth()
-      .post('https://anywhere-fitness-6-2021.herokuapp.com/api/users', { userCredentials })
+    axios
+      .post('https://anywhere-fitness-6-2021.herokuapp.com/api/users', userCredentials )
       .then((res) => {
         console.log(res);
-        //navigate("/userlogin");
+        setValues(res.data);
+        navigate("/userlogin");
       })
       .catch((err) => {
         console.log(err);
@@ -53,22 +47,6 @@ const SignUp = () => {
       <UserHeader />
       <form onSubmit={handleSubmit} className="formSignUp-container">
         <h2>Sign Up</h2>
-        {/* <input
-          type="text"
-          name="firstName"
-          value={values.firstName}
-          onChange={(e) => setValues(e.target.value)}
-          autoComplete="on"
-          placeholder="First Name"
-        />
-        <input
-          type="text"
-          name="lastName"
-          value={values.lastName}
-          onChange={(e) => setValues(e.target.value)}
-          autoComplete="on"
-          placeholder="Last Name"
-        /> */}
         <input
           type="text"
           name="username"

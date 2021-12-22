@@ -10,7 +10,7 @@ import ClassCard from "./UserComponents/ClassCard";
 const SearchClasses = () => {
   const [searchValue, setSearchValue] = useState('');
   const [search, setSearch] = useState(false);
-  // const [classes, setClasses] = useState(classList);
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     setSearch(true);
@@ -25,26 +25,12 @@ const SearchClasses = () => {
     //   });
   };
 
-
   const onChange = evt => {
     const { value } = evt.target
     setSearchValue(value)
     setSearch(false);
   }
 
-  const searchResults = () => {
-    <div className="classCards">
-    {classList.filter((val) => {
-      if (searchValue === "") {
-        return null
-      } else if (val.name.toLowerCase().includes(searchValue.toLocaleLowerCase())) {
-        return val
-      }
-    }).map((item, key) => {
-      return <ClassCard key={key} class={item} />
-    })}    
-    </div>
-  }
   return (
     <div className="search-page-container">
       <div className="search-header-container">
@@ -86,19 +72,7 @@ const SearchClasses = () => {
             return <ClassCard key={key} class={item} />
           })}    
         </div> 
-      : null}
-      {/* <div className="classCards">
-        {classList.filter((val) => {
-          if (searchValue === "") {
-            return null
-          } else if (val.name.toLowerCase().includes(searchValue.toLocaleLowerCase())) {
-            return val
-          }
-        }).map((item, key) => {
-          return <ClassCard key={key} class={item} />
-        })}    
-      </div> */}
-
+        : null}
     </div>
   );
 };

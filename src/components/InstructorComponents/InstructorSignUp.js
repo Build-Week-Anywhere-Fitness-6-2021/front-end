@@ -9,19 +9,18 @@ const SignUp = () => {
   const navigate = useNavigate();
   const [values, setValues] = useState(
     {
-      firstName: "",
-      lastName: "",
       username: "",
       email: "",
       instructorCode: "",
       password: "",
+      role_id: 1
     },
   );
   const userCredentials = { 
     username: values.username,
     password: values.password,
     email: values.email,
-    instructorCode: values.instructorCode,
+    role_id: values.instructorCode,
    }
   
 
@@ -34,6 +33,10 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // if (values.instructorCode === "password") {
+    //   ...values,
+
+    // }
     // axios
     //   .post("https://anywhere-fitness-6-2021.herokuapp.com/api/users", { userCredentials })
     //   .then((res) => {
@@ -51,22 +54,6 @@ const SignUp = () => {
       <InstructorHeader />
       <form onSubmit={handleSubmit} className="formSignUp-container">
         <h2>Sign Up</h2>
-        {/* <input
-          type="text"
-          name="firstName"
-          value={values.firstName}
-          onChange={handleChange}
-          autoComplete="on"
-          placeholder="First Name"
-        />
-        <input
-          type="text"
-          name="lastName"
-          value={values.lastName}
-          onChange={handleChange}
-          autoComplete="on"
-          placeholder="Last Name"
-        /> */}
         <input
           type="text"
           name="username"

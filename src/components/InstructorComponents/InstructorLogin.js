@@ -7,13 +7,26 @@ import InstructorHeader from "./InstructorHeader";
 import "../../css/Login.css";
 
 const InstructorLogin = () => {
-  const [instructorUsername, setInstructorUsername] = useState("");
-  const [instructorPassword, setInstructorPassword] = useState("");
+  const [values, setValues] = useState(
+    {
+      username: "",
+      instructorCode: "",
+      password: "",
+      role_id: 1
+    },
+  );
   const userCredentials = {
-    email: instructorUsername,
-    password: instructorPassword,
+    username: values.username,
+    password: values.password,
   };
   const navigate = useNavigate();
+
+  const handleChange = (e) =>{
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value
+    })
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,16 +52,24 @@ const InstructorLogin = () => {
         <input
           type="text"
           name="username"
-          value={instructorUsername}
-          onChange={(e) => setInstructorUsername(e.target.value)}
+          value={values.username}
+          onChange={handleChange}
           autoComplete="on"
           placeholder="Username"
         />
         <input
           type="password"
           name="password"
-          value={instructorPassword}
-          onChange={(e) => setInstructorPassword(e.target.value)}
+          value={values.password}
+          onChange={handleChange}
+          autoComplete="on"
+          placeholder="Password"
+        />
+        <input
+          type="password"
+          name="password"
+          value={values.password}
+          onChange={handleChange}
           autoComplete="on"
           placeholder="Password"
         />

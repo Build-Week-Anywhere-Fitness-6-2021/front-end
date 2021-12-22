@@ -6,25 +6,37 @@ import axiosWithAuth from "../../axiosWithAuth.js/axiosWithAuth";
 import "../../css/Login.css";
 
 const UserLogin = () => {
-  const [username, setUsername] = useState("");
-  const [userPassword, setUserPassword] = useState("");
+  const [values, setValues] = useState(
+    {
+      username: "",
+      password: "",
+    }
+  );
   const navigate = useNavigate();
-  const userCredentials = { email: username, password: userPassword };
+  const userCredentials = { 
+    username: values.username, 
+    password: values.password 
+  };
+
+  const handleChange = (e) =>{
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value
+    })
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // axiosWithAuth()
-    //   .post("https://reqres.in/api/login", userCredentials)
-    //   // email: eve.holt@reqres.in password: cityslicka
-    //   .then((res) => {
-    //     console.log(res);
-    //     localStorage.setItem("token", res.data.token);
-    //     navigate("/userdashboard");
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-      navigate("/userdashboard");
+    axiosWithAuth()
+      .post("https://anywhere-fitness-6-2021.herokuapp.com/api/auth/login", userCredentials)
+      .then((res) => {
+        setValues(res.data);
+        localStorage.setItem("token", res.data.token);
+        navigate("/userdashboard");
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   };
 
   return (
@@ -35,16 +47,16 @@ const UserLogin = () => {
         <input
           type="text"
           name="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={values.username}
+          onChange={handleChange}
           autoComplete="on"
           placeholder="Username"
         />
         <input
           type="password"
           name="password"
-          value={userPassword}
-          onChange={(e) => setUserPassword(e.target.value)}
+          value={values.password}
+          onChange={handleChange}
           autoComplete="on"
           placeholder="Password"
         />
