@@ -20,9 +20,11 @@ const SignUp = () => {
   );
   const navigate = useNavigate();
   const userCredentials = { 
+    email: values.email,
     username: values.username,
     password: values.password,
-    email: values.email
+    
+    // role_id: 1
    }
 
   const handleChange = (e) =>{
@@ -36,16 +38,15 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // axiosWithAuth()
-    //   .post('https://still-everglades-90046.herokuapp.com/https://anywhere-fitness-6-2021.herokuapp.com/api/users', { userCredentials })
-    //   .then((res) => {
-    //     console.log(res);
-    //     //navigate("/instructorlogin");
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-      navigate("/instructorlogin");
+    axiosWithAuth()
+      .post('https://anywhere-fitness-6-2021.herokuapp.com/api/users', { userCredentials })
+      .then((res) => {
+        console.log(res);
+        //navigate("/userlogin");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <div className="signUp-container">
