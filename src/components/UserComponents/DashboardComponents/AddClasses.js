@@ -1,8 +1,9 @@
 import {useState } from "react";
+import axios from 'axios';
 import ClassInfo from "../ClassInfo";
 
 //Dummy Classes Data
-const classes = [
+const classesData = [
   {
       name: "Fart Yoga",
       type: "yoga",
@@ -37,12 +38,19 @@ const classes = [
 
 const AddClasses = () => {
 
-  const [selectedOption, setSelectedOption] = useState("");
+  const [classes, setClasses] = useState([]);
+
+  const getClasses = () => {
+    axios.get('http://buddies.com/api/classes')
+      .then(resp => {
+        setClasses(resp.data);
+      }).catch(err => console.error(err))
+  }
 
   return (
-    <div className="main-dash-content">
+    <div className="user-dash-content">
       {
-        classes.map((classInfo, idx) =>{
+        classesData.map((classInfo, idx) =>{
           return (
             < ClassInfo key={idx} details={classInfo} />
           )
