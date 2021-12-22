@@ -1,4 +1,8 @@
-import { CREATE_CLASS } from "./Actions/InstructorActions";
+import {
+  CREATE_CLASS,
+  EDIT_CLASS,
+  DELETE_CLASS,
+} from "./Actions/InstructorActions";
 
 import classes from "../data/data";
 
@@ -16,14 +20,21 @@ const InstructorReducer = (state = initialState, action) => {
         classes: [...state.classes, action.payload],
         numberOfClasses: (state.classes.length += 1),
       };
-    case "EDIT_CLASS":
+    case EDIT_CLASS:
       return {
         //   Add a new class that SearchClasses.js and InstructorDashboard.js can access
+        ...state,
+        classes: state.classes.map(
+          (obj) => [action.payload].find((o) => o.id === obj.id) || obj
+        ),
       };
-    case "DELETE_CLASS":
+    case DELETE_CLASS:
       return {
         //   Add a new class that SearchClasses.js and InstructorDashboard.js can access
         // classes: state.classes.filter(item => (action.payload))
+        ...state,
+        classes: state.classes.filter((obj) => action.payload !== obj.id),
+        numberOfClasses: (state.classes.length -= 1),
       };
     default:
       return state;
