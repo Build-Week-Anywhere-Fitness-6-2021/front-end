@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { editClass } from "../../../../reducers/Actions/InstructorActions";
+import { editClass } from "../../../../actions/InstructorActions";
 
 import "../../../../css/InstructorForm.css";
 
@@ -39,8 +39,6 @@ const EditForm = (props) => {
     e.preventDefault();
     props.editClass(credentials);
   };
-
-  console.log(cardData);
 
   return (
     <div id="instructor-form-container">

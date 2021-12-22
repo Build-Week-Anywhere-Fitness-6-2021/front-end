@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { connect } from "react-redux";
+
 import EditForm from "./Forms/EditForm";
 import DeleteForm from "./Forms/DeleteForm";
+
+import ClassCard from "./ClassCard";
 
 const ListOfClasses = (props) => {
   const [isClicked, setClicked] = useState(false);
   const [cardData, setCardData] = useState({});
-
-  console.log(props);
 
   const handleCardClick = (data) => {
     setCardData(data);
@@ -15,7 +16,7 @@ const ListOfClasses = (props) => {
   };
 
   return (
-    <div>
+    <>
       {isClicked ? (
         <>
           {props.selectedClass === "edit" ? (
@@ -31,36 +32,24 @@ const ListOfClasses = (props) => {
           <div id="class-list-elem-container">
             {props.classes.map((obj) => {
               return (
-                <div
-                  onClick={() => {
-                    handleCardClick(obj);
-                  }}
-                  className="class-list-elem"
+                <ClassCard
                   key={obj.id}
-                >
-                  <div id="group-1">
-                    <p>Name:</p>
-                    <span>{obj.name}</span>
-                  </div>
-                  <hr />
-                  <div id="group-2">
-                    <p>Start Time: {obj.startTime}</p>
-                    <p>Location: {obj.location}</p>
-                  </div>
-                </div>
+                  obj={obj}
+                  handleCardClick={handleCardClick}
+                />
               );
             })}
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
-    classes: state.classes,
-    numberOfClasses: state.numberOfClasses,
+    classes: state.instructorReducer.classes,
+    numberOfClasses: state.instructorReducer.numberOfClasses,
   };
 };
 

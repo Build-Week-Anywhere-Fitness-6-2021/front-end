@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { createClass } from "../../../../reducers/Actions/InstructorActions";
+import { createClass } from "../../../../actions/InstructorActions";
 
 import "../../../../css/InstructorForm.css";
 import { nanoid } from "nanoid";
@@ -103,8 +103,8 @@ const AddForm = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    classes: state.classes,
-    numberOfClasses: state.numberOfClasses,
+    classes: state.instructorReducer.classes,
+    numberOfClasses: state.instructorReducer.numberOfClasses,
   };
 };
 

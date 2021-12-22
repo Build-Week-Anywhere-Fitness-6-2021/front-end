@@ -1,10 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { connect } from "react-redux";
 
 import AddForm from "./Forms/AddForm";
-import EditForm from "./Forms/EditForm";
-import DeleteForm from "./Forms/DeleteForm";
 import ListOfClasses from "./ListOfClasses";
 
 import "../../../css/InstructorForm.css";
@@ -25,7 +23,6 @@ const ManageClasses = (props) => {
 
   return (
     <div className="main-dash-content">
-      {/* If selectedClass is falsey, render options to click */}
       {selectedClass === "" ? (
         <>
           <h1>Manage Classes</h1>
@@ -41,16 +38,12 @@ const ManageClasses = (props) => {
         </>
       ) : null}
 
-      {/* Is selectedClass truthy, check value of selectedClass */}
       {selectedClass ? (
         <>
-          {/* If selectedClass === "add", render add form */}
           {selectedClass === "add" ? <AddForm /> : null}
 
-          {/* If selectedClass === "edit", check if numberOfClasses is truthy (numberOfClasses > 0) */}
           {selectedClass === "edit" ? (
             <>
-              {/*If so, render list of classes to select from. If not, render edit form  */}
               {props.numberOfClasses ? (
                 <ListOfClasses selectedClass={selectedClass} />
               ) : (
@@ -59,10 +52,8 @@ const ManageClasses = (props) => {
             </>
           ) : null}
 
-          {/* If selectedClass === "delete", check if numberOfClasses is truthy (numberOfClasses > 0) */}
           {selectedClass === "delete" ? (
             <>
-              {/*If so, render list of classes to select from. If not, render delete form  */}
               {props.numberOfClasses ? (
                 <ListOfClasses selectedClass={selectedClass} />
               ) : (
@@ -79,8 +70,8 @@ const ManageClasses = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    classes: state.classes,
-    numberOfClasses: state.numberOfClasses,
+    classes: state.instructorReducer.classes,
+    numberOfClasses: state.instructorReducer.numberOfClasses,
   };
 };
 
