@@ -16,20 +16,15 @@ const SignUp = () => {
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(false);
   const [values, setValues] = useState({
-    user_id: "",
     username: "",
     password: "",
     email: "",
-    role_id: "",
-    role: "",
   });
   const navigate = useNavigate();
   const userCredentials = {
     email: values.email,
     username: values.username,
     password: values.password,
-
-    // role_id: 1
   };
 
   const validateForm = (name, value) => {
@@ -44,19 +39,18 @@ const SignUp = () => {
     validateForm(e.target.name, e.target.value);
     setValues({
       ...values,
-      [e.target.name]: e.target.value,
-    });
-  };
+      [e.target.name]: e.target.value
+    })
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axiosWithAuth()
-      .post("https://anywhere-fitness-6-2021.herokuapp.com/api/users", {
-        userCredentials,
-      })
+    axios
+      .post('https://anywhere-fitness-6-2021.herokuapp.com/api/users', userCredentials )
       .then((res) => {
         console.log(res);
-        //navigate("/userlogin");
+        setValues(res.data);
+        navigate("/userlogin");
       })
       .catch((err) => {
         console.log(err);

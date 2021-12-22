@@ -48,6 +48,10 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // if (values.instructorCode === "password") {
+    //   ...values,
+
+    // }
     // axios
     //   .post("https://anywhere-fitness-6-2021.herokuapp.com/api/users", { userCredentials })
     //   .then((res) => {

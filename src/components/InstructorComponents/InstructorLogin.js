@@ -22,10 +22,11 @@ const InstructorLogin = () => {
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(false);
   const userCredentials = {
-    email: values.username,
+    username: values.username,
     password: values.password,
   };
   const navigate = useNavigate();
+
 
   const validateForm = (name, value) => {
     yup

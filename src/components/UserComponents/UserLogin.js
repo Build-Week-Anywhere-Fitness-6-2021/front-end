@@ -41,17 +41,16 @@ const UserLogin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // axiosWithAuth()
-    //   .post("https://reqres.in/api/login", userCredentials)
-    //   // email: eve.holt@reqres.in password: cityslicka
-    //   .then((res) => {
-    //     console.log(res);
-    //     localStorage.setItem("token", res.data.token);
-    //     navigate("/userdashboard");
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    axiosWithAuth()
+      .post("https://anywhere-fitness-6-2021.herokuapp.com/api/auth/login", userCredentials)
+      .then((res) => {
+        setValues(res.data);
+        localStorage.setItem("token", res.data.token);
+        navigate("/userdashboard");
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
     navigate("/userdashboard");
   };
 
