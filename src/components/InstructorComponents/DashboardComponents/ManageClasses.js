@@ -51,7 +51,11 @@ const ManageClasses = (props) => {
           {selectedClass === "edit" ? (
             <>
               {/*If so, render list of classes to select from. If not, render edit form  */}
-              {props.numberOfClasses ? <ListOfClasses /> : <EditForm />}
+              {props.numberOfClasses ? (
+                <ListOfClasses selectedClass={selectedClass} />
+              ) : (
+                <p>No Classes To Select</p>
+              )}
             </>
           ) : null}
 
@@ -59,7 +63,11 @@ const ManageClasses = (props) => {
           {selectedClass === "delete" ? (
             <>
               {/*If so, render list of classes to select from. If not, render delete form  */}
-              {props.numberOfClasses ? <ListOfClasses /> : <DeleteForm />}
+              {props.numberOfClasses ? (
+                <ListOfClasses selectedClass={selectedClass} />
+              ) : (
+                <p>No Classes To Select</p>
+              )}
             </>
           ) : null}
           <button onClick={handleBackButton}>Go Back</button>

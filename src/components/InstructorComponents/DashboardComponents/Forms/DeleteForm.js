@@ -1,72 +1,30 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { deleteClass } from "../../../../reducers/Actions/InstructorActions";
 
 import "../../../../css/InstructorForm.css";
 
-const initialCredentials = {
-  name: "",
-  type: "",
-  startTime: "",
-  duration: "",
-  intensityLevel: "",
-  location: "",
-  currentNumberOfClassSize: "",
-  maxNumberOfClassSize: "",
-};
-
 const DeleteForm = (props) => {
-  const [credentials, setCredentials] = useState(initialCredentials);
+  console.log(props);
 
-  const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-
-    setCredentials({
-      ...credentials,
-      [name]: value,
-    });
+  const handleClick = (id) => {
+    props.deleteClass(id);
   };
 
   return (
-    <div id="instructor-form-container">
-      <h2>Delete Class</h2>
-      <form id="instructor-form">
-        <label>
-          Name:
-          <input onChange={handleChange} name="name" />
-        </label>
-        <label>
-          Type:
-          <input onChange={handleChange} name="type" />
-        </label>
-        <label>
-          Start Time:
-          <input onChange={handleChange} name="startTime" />
-        </label>
-        <label>
-          Duration:
-          <input onChange={handleChange} name="duration" />
-        </label>
-        <label>
-          Intensity Level:
-          <input onChange={handleChange} name="intensityLevel" />
-        </label>
-        <label>
-          Location:
-          <input onChange={handleChange} name="location" />
-        </label>
-        <label>
-          Current Number of Class Size:
-          <p></p>
-        </label>
-        <label>
-          Max Number of Class Size:
-          <input onChange={handleChange} name="maxNumberOfClassSize" />
-        </label>
-
-        <button type="submit">Submit</button>
-      </form>
+    <div id="delete-overlay">
+      <div id="delete-notification">
+        <p>Are you sure you want to delete {props.cardData.name}?</p>
+        <button
+          onClick={() => {
+            handleClick(props.cardData.id);
+          }}
+        >
+          Delete
+        </button>
+      </div>
     </div>
   );
 };
 
-export default DeleteForm;
+export default connect(null, { deleteClass })(DeleteForm);
