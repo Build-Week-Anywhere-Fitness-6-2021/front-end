@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import "../../../css/InstructorForm.css";
+import "../../../../css/InstructorForm.css";
 
 const initialCredentials = {
   name: "",
