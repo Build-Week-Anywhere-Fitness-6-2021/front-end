@@ -9,12 +9,12 @@ const initialCredentials = {
   id: "",
   name: "Rough House",
   type: "Intense",
-  startTime: "2 p.m.",
-  duration: "1 hour",
-  intensityLevel: "10",
+  start: "2 p.m.",
+  duration: 60,
+  intensity: "10",
   location: "Example Park",
-  currentNumberOfClassSize: "",
-  maxNumberOfClassSize: "20",
+  registered: 10,
+  maxsize: 20,
 };
 
 const AddForm = (props) => {
@@ -54,8 +54,8 @@ const AddForm = (props) => {
           Start Time:
           <input
             onChange={handleChange}
-            name="startTime"
-            value={credentials.startTime}
+            name="start"
+            value={credentials.start}
           />
         </label>
         <label>
@@ -70,8 +70,8 @@ const AddForm = (props) => {
           Intensity Level:
           <input
             onChange={handleChange}
-            name="intensityLevel"
-            value={credentials.intensityLevel}
+            name="intensity"
+            value={credentials.intensity}
           />
         </label>
         <label>
@@ -83,15 +83,19 @@ const AddForm = (props) => {
           />
         </label>
         <label>
-          Current Number of Class Size:
-          <p></p>
+          Current Number Registered:
+          <input
+            onChange={handleChange}
+            name="registered"
+            value={credentials.registered}
+          />
         </label>
         <label>
           Max Number of Class Size:
           <input
             onChange={handleChange}
-            name="maxNumberOfClassSize"
-            value={credentials.maxNumberOfClassSize}
+            name="maxsize"
+            value={credentials.maxsize}
           />
         </label>
 
