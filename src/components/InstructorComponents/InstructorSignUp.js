@@ -1,35 +1,50 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import InstructorHeader from "./InstructorHeader";
 import "../../css/SignUp.css";
+import * as yup from "yup";
+import { instructorSignUpSchema } from "./InstructorFormSchema";
+
+const initialFormErrors = {
+  name: "",
+};
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const [values, setValues] = useState(
-    {
-      username: "",
-      email: "",
-      instructorCode: "",
-      password: "",
-      role_id: 1
-    },
-  );
-  const userCredentials = { 
+  const [formErrors, setFormErrors] = useState(initialFormErrors);
+  const [disabled, setDisabled] = useState(false);
+  const [values, setValues] = useState({
+    // firstName: "",
+    // lastName: "",
+    username: "",
+    email: "",
+    instructorCode: "",
+    password: "",
+  });
+  const userCredentials = {
     username: values.username,
     password: values.password,
     email: values.email,
-    role_id: values.instructorCode,
-   }
-  
+    instructorCode: values.instructorCode,
+  };
 
-  const handleChange = (e) =>{
+  const validateForm = (name, value) => {
+    yup
+      .reach(instructorSignUpSchema, name)
+      .validate(value)
+      .then(() => setFormErrors({ ...formErrors, [name]: "" }))
+      .catch((err) => setFormErrors({ ...formErrors, [name]: err.errors[0] }));
+  };
+
+  const handleChange = (e) => {
+    validateForm(e.target.name, e.target.value);
     setValues({
       ...values,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,14 +61,35 @@ const SignUp = () => {
     //   .catch((err) => {
     //     console.log(err);
     //   });
-      navigate("/instructorlogin");
+    navigate("/instructorlogin");
   };
+
+  useEffect(() => {
+    instructorSignUpSchema.isValid(values).then((valid) => setDisabled(!valid));
+  }, [values]);
 
   return (
     <div className="signUp-container">
       <InstructorHeader />
       <form onSubmit={handleSubmit} className="formSignUp-container">
         <h2>Sign Up</h2>
+        {/* <input
+          type="text"
+          name="firstName"
+          value={values.firstName}
+          onChange={handleChange}
+          autoComplete="on"
+          placeholder="First Name"
+        />
+        <input
+          type="text"
+          name="lastName"
+          value={values.lastName}
+          onChange={handleChange}
+          autoComplete="on"
+          placeholder="Last Name"
+        /> */}
+        <p className="required">{formErrors.username}</p>
         <input
           type="text"
           name="username"
@@ -62,6 +98,7 @@ const SignUp = () => {
           autoComplete="on"
           placeholder="Username"
         />
+        <p className="required">{formErrors.email}</p>
         <input
           type="email"
           name="email"
@@ -70,6 +107,7 @@ const SignUp = () => {
           autoComplete="on"
           placeholder="Email"
         />
+        <p className="required">{formErrors.instructorCode}</p>
         <input
           type="password"
           name="instructorCode"
@@ -78,6 +116,7 @@ const SignUp = () => {
           autoComplete="on"
           placeholder="Instructor Authorization Code"
         />
+        <p className="required">{formErrors.password}</p>
         <input
           type="password"
           name="password"
@@ -86,7 +125,9 @@ const SignUp = () => {
           autoComplete="on"
           placeholder="Password"
         />
-        <button type="submit">Create Account</button>
+        <button type="submit" disabled={disabled}>
+          Create Account
+        </button>
       </form>
     </div>
   );

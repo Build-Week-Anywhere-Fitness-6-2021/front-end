@@ -5,24 +5,38 @@ import axios from "axios";
 import axiosWithAuth from "../../axiosWithAuth.js/axiosWithAuth";
 import { useNavigate } from "react-router-dom";
 import "../../css/SignUp.css";
+import * as yup from "yup";
+import { userSignUpSchema } from "./UserFormSchema";
 
+const initialFormErrors = {
+  name: "",
+};
 
 const SignUp = () => {
-  const [values, setValues] = useState(
-    {
-      username: "",
-      password: "",
-      email: "",
-    }
-  );
+  const [formErrors, setFormErrors] = useState(initialFormErrors);
+  const [disabled, setDisabled] = useState(false);
+  const [values, setValues] = useState({
+    username: "",
+    password: "",
+    email: "",
+  });
   const navigate = useNavigate();
-  const userCredentials = { 
+  const userCredentials = {
     email: values.email,
     username: values.username,
     password: values.password,
-   }
+  };
 
-  const handleChange = (e) =>{
+  const validateForm = (name, value) => {
+    yup
+      .reach(userSignUpSchema, name)
+      .validate(value)
+      .then(() => setFormErrors({ ...formErrors, [name]: "" }))
+      .catch((err) => setFormErrors({ ...formErrors, [name]: err.errors[0] }));
+  };
+
+  const handleChange = (e) => {
+    validateForm(e.target.name, e.target.value);
     setValues({
       ...values,
       [e.target.name]: e.target.value
@@ -42,11 +56,33 @@ const SignUp = () => {
         console.log(err);
       });
   };
+
+  useEffect(() => {
+    userSignUpSchema.isValid(values).then((valid) => setDisabled(!valid));
+  }, [values]);
+
   return (
     <div className="signUp-container">
       <UserHeader />
       <form onSubmit={handleSubmit} className="formSignUp-container">
         <h2>Sign Up</h2>
+        {/* <input
+          type="text"
+          name="firstName"
+          value={values.firstName}
+          onChange={(e) => setValues(e.target.value)}
+          autoComplete="on"
+          placeholder="First Name"
+        />
+        <input
+          type="text"
+          name="lastName"
+          value={values.lastName}
+          onChange={(e) => setValues(e.target.value)}
+          autoComplete="on"
+          placeholder="Last Name"
+        /> */}
+        <p className="required">{formErrors.username}</p>
         <input
           type="text"
           name="username"
@@ -55,6 +91,7 @@ const SignUp = () => {
           autoComplete="on"
           placeholder="Username"
         />
+        <p className="required">{formErrors.email}</p>
         <input
           type="email"
           name="email"
@@ -63,6 +100,7 @@ const SignUp = () => {
           autoComplete="on"
           placeholder="Email"
         />
+        <p className="required">{formErrors.password}</p>
         <input
           type="password"
           name="password"
@@ -71,7 +109,9 @@ const SignUp = () => {
           autoComplete="on"
           placeholder="Password"
         />
-        <button type="submit">Create Account</button>
+        <button type="submit" disabled={disabled}>
+          Create Account
+        </button>
       </form>
     </div>
   );
