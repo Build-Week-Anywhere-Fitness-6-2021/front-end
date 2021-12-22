@@ -1,12 +1,9 @@
-import React, { useState } from "react";
 import { connect } from "react-redux";
-import { deleteClass } from "../../../../reducers/Actions/InstructorActions";
+import { deleteClass } from "../../../../actions/InstructorActions";
 
 import "../../../../css/InstructorForm.css";
 
 const DeleteForm = (props) => {
-  console.log(props);
-
   const handleClick = (id) => {
     props.deleteClass(id);
   };

@@ -65,7 +65,6 @@ const InstructorDashboard = () => {
             </div>
           </ul>
         </nav>
-        {/* <div className="main-dash-content">main container</div> */}
         <Outlet />
       </div>
     </div>

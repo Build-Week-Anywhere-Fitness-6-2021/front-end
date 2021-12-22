@@ -2,16 +2,14 @@ import {
   CREATE_CLASS,
   EDIT_CLASS,
   DELETE_CLASS,
-} from "./Actions/InstructorActions";
-
-import classes from "../data/data";
+} from "../actions/InstructorActions";
 
 const initialState = {
   classes: [],
   numberOfClasses: 0,
 };
 
-const InstructorReducer = (state = initialState, action) => {
+const instructorReducer = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_CLASS:
       return {
@@ -41,4 +39,4 @@ const InstructorReducer = (state = initialState, action) => {
   }
 };
 
-export default InstructorReducer;
+export default instructorReducer;
