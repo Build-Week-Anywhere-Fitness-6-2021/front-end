@@ -44,38 +44,26 @@ Instructors can take attendance, request and process payments, create virtual â€
 
 ### Meet The Team
 
-#### William Buchanan
-
+### William Buchanan
 #### Front End Engineer
-
 Github: https://github.com/wb1110
 
-#### David Fletcher
-
+### David Fletcher
 #### Back End Engineer
-
 Github: https://github.com/fletchulence
 
-#### Brett Smith
-
+### Brett Smith
 #### Front End Engineer
-
 Github: https://github.com/brettsmith212
 
-#### Ricardo Castillo
-
+### Ricardo Castillo
 #### Front End Engineer
-
 Github: https://github.com/richad97
 
-#### David Aihe
-
+### David Aihe
 #### Front End Engineer
-
 Github: https://github.com/Divici
 
-#### Ted Volchko
-
+### Ted Volchko
 #### Front End Engineer
-
 Github: https://github.com/tvolchko
