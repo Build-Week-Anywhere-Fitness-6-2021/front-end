@@ -43,18 +43,25 @@ const InstructorLogin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // axiosWithAuth()
-    //   .post("https://reqres.in/api/login", userCredentials)
-    //   // email: eve.holt@reqres.in password: cityslicka
-    //   .then((res) => {
-    //     console.log(res);
-    //     localStorage.setItem("token", res.data.token);
-    //     navigate("/instructordashboard");
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-    navigate("/instructordashboard");
+    axiosWithAuth()
+      .post(
+        "https://anywhere-fitness-6-2021.herokuapp.com/api/auth/login",
+        userCredentials
+      )
+      // email: eve.holt@reqres.in password: cityslicka
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("token", res.data.token);
+        navigate("/instructordashboard");
+      })
+      .catch((err) => {
+        console.log(err.response.data.message);
+        setFormErrors({
+          ...formErrors,
+          unauthorized: err.response.data.message,
+        });
+      });
+    // navigate("/instructordashboard");
   };
 
   useEffect(() => {
@@ -84,6 +91,7 @@ const InstructorLogin = () => {
           autoComplete="on"
           placeholder="Password"
         />
+        <p className="required">{formErrors.unauthorized}</p>
         <button type="submit" disabled={disabled}>
           Login
         </button>
