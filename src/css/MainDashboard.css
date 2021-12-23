@@ -18,55 +18,98 @@
   background-color: whitesmoke;
 }
 
-#manage-classes-div {
+.main-dash-template {
   height: 100%;
 }
 
-#manage-classes-div > h1 {
-  padding: 2rem 3.5rem;
-  font-size: 1.8rem;
+.main-dash-template > header {
+  padding: 1.5rem 3.5rem;
+  font-size: 0.9rem;
   color: rgba(0, 0, 0, 0.422);
   font-weight: 100;
   border: none;
   background-color: rgba(0, 0, 0, 0.04);
+  display: flex;
+  justify-content: space-between;
 }
 
-/* #manage-classes-div > hr {
+.main-dash-template > header > div > button {
+  margin: 0 0.5rem;
+}
+
+.custom-button {
+  border-radius: 5px;
+  border: 0px solid black;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin: 0;
+}
+
+.back {
+  background-color: #f58a07;
+}
+
+.submit {
+  background-color: #07f523;
+}
+
+.delete {
+  background-color: #f53707;
+}
+
+/* .main-dash-template > hr {
   border: none;
   border-top: 2px solid rgba(0, 0, 0, 0.2);
   width: 85%;
   margin: auto;
 } */
 
-#manage-classes-div > ul {
+.main-dash-template > ul {
   margin: auto;
   margin-top: 2rem;
-  width: 35%;
+  width: 40%;
   height: 70%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   border: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 1rem 0.5rem 1rem rgba(0, 0, 0, 0.05);
-  border-radius: 1rem;
+  /* border-radius: 1rem; */
   background-color: white;
+  padding: 0;
 }
 
-#manage-classes-div > ul > hr {
+.main-dash-template > ul > hr {
   width: 100%;
   margin: auto;
   border: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-#manage-classes-div > ul > li {
+.main-dash-template > ul > li {
   height: 100%;
-  font-size: 1.3rem;
+  width: 100%;
+  font-size: 1.5rem;
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 600;
   display: flex;
+  justify-content: space-around;
   align-items: center;
-  padding: 0 3rem;
-  color: rgba(0, 0, 0, 0.7);
-  font-weight: bold;
+}
+
+.main-dash-template > ul > li > svg {
+  height: 2rem;
+  width: 2rem;
+}
+
+.main-dash-template > ul > li:hover {
+  transition: 0.2s ease-in;
+  background-color: rgba(0, 0, 0, 0.03);
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .main-dash-content {
@@ -123,6 +166,7 @@
   background-color: #084887;
   font-weight: bold;
 }
+
 .class-container button:hover {
   background-color: #f58a07;
 }
@@ -138,10 +182,11 @@
 }
 
 #class-list-elem-container {
-  height: auto;
+  height: 82%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 15rem;
+  overflow: scroll;
 }
 
 .class-list-elem {
@@ -246,21 +291,85 @@ span {
   align-items: center;
 }
 
-.li-wrapper {
-  height: 10rem !important;
+.side-nav-icons {
 }
 
-.li-wrapper,
-li {
+.side-nav-icons > svg {
+  height: 1.8rem;
+  width: 4rem;
+  filter: drop-shadow(0rem 0rem 1rem rgba(0, 0, 0, 0.387));
+}
+.side-nav-icons > span {
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.li-wrapper > li {
   display: flex;
   justify-content: center;
+  margin: 1rem;
+}
+
+.li-wrapper > a {
+  text-decoration: white;
 }
 
 .li-wrapper,
 li span {
-  width: 100%;
+  /* width: 100%;
   display: flex;
   justify-content: center;
-  cursor: pointer;
+  cursor: pointer; */
   color: white;
+}
+
+.dashboard-forms-container {
+  overflow: scroll;
+  height: 85%;
+}
+
+.dashboard-forms {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 40%;
+  margin: auto;
+  margin-top: 2rem;
+  padding: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 1rem 0.5rem 1rem rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-forms > label {
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 0;
+}
+
+.dashboard-forms > label > input {
+  display: flex;
+  flex-direction: column;
+  margin: 0.4rem 0;
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.184);
+  padding: 0.3rem 1rem;
+}
+
+.popup {
+  border: 3px solid lightgreen;
+  display: inline;
+  background-color: white;
+  width: 18%;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  font-weight: bold;
+  top: 100%;
+  left: 77%;
+  display: flex;
+  flex-direction: row;
+}
+
+.popup > svg {
+  color: lightgreen;
+  padding-right: 1rem;
 }

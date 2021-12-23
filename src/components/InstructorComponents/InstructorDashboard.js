@@ -21,7 +21,7 @@ const InstructorDashboard = () => {
           <ul>
             <li>
               <Link to="/instructordashboard">
-                <span>
+                <span className="side-nav-icons">
                   <AiFillHome />
                   <span>Home</span>
                 </span>
@@ -30,7 +30,7 @@ const InstructorDashboard = () => {
             <div className="li-wrapper">
               <li>
                 <Link to="/instructordashboard/classes">
-                  <span>
+                  <span className="side-nav-icons">
                     <AiOutlinePlus />
                     <span>Manage Classes</span>
                   </span>
@@ -38,7 +38,7 @@ const InstructorDashboard = () => {
               </li>
               <li>
                 <Link to="/instructordashboard/passes">
-                  <span>
+                  <span className="side-nav-icons">
                     <RiPassportFill />
                     <span>Manage Passes</span>
                   </span>
@@ -48,7 +48,7 @@ const InstructorDashboard = () => {
             <div className="li-wrapper">
               <li>
                 <Link to="/instructordashboard/settings">
-                  <span>
+                  <span className="side-nav-icons">
                     <RiSettings4Fill />
                     <span>Settings</span>
                   </span>
@@ -56,7 +56,7 @@ const InstructorDashboard = () => {
               </li>
               <li>
                 <Link to="/">
-                  <span>
+                  <span className="side-nav-icons">
                     <RiLogoutBoxFill />
                     <span>Logout</span>
                   </span>

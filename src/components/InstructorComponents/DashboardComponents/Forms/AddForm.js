@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { createClass } from "../../../../actions/InstructorActions";
 
-import "../../../../css/InstructorForm.css";
+import "../../../../css/MainDashboard.css";
 import { nanoid } from "nanoid";
 
 const initialCredentials = {
@@ -18,7 +18,14 @@ const initialCredentials = {
 };
 
 const AddForm = (props) => {
-  const { createClass } = props;
+  const {
+    createClass,
+    setSelectedClass,
+    setPopup,
+    setAddedClassName,
+    setEditClassName,
+    setDeleteClassName,
+  } = props;
 
   const [credentials, setCredentials] = useState(initialCredentials);
 
@@ -36,71 +43,102 @@ const AddForm = (props) => {
     e.preventDefault();
     // Sets unique ID
     createClass({ ...credentials, id: nanoid(5) });
+    setSelectedClass("");
+    setPopup(true);
+    setAddedClassName(credentials.name);
+    setEditClassName("");
+    setDeleteClassName("");
+  };
+
+  const handleBackButton = () => {
+    setSelectedClass("");
   };
 
   return (
-    <div id="instructor-form-container">
-      <h2>Add Class</h2>
-      <form onSubmit={handleSubmit} id="instructor-form">
-        <label>
-          Name:
-          <input onChange={handleChange} name="name" value={credentials.name} />
-        </label>
-        <label>
-          Type:
-          <input onChange={handleChange} name="type" value={credentials.type} />
-        </label>
-        <label>
-          Start Time:
-          <input
-            onChange={handleChange}
-            name="start"
-            value={credentials.start}
-          />
-        </label>
-        <label>
-          Duration:
-          <input
-            onChange={handleChange}
-            name="duration"
-            value={credentials.duration}
-          />
-        </label>
-        <label>
-          Intensity Level:
-          <input
-            onChange={handleChange}
-            name="intensity"
-            value={credentials.intensity}
-          />
-        </label>
-        <label>
-          Location:
-          <input
-            onChange={handleChange}
-            name="location"
-            value={credentials.location}
-          />
-        </label>
-        <label>
-          Current Number Registered:
-          <input
-            onChange={handleChange}
-            name="registered"
-            value={credentials.registered}
-          />
-        </label>
-        <label>
-          Max Number of Class Size:
-          <input
-            onChange={handleChange}
-            name="maxsize"
-            value={credentials.maxsize}
-          />
-        </label>
-
-        <button type="submit">Submit</button>
-      </form>
+    <div className="main-dash-template">
+      <header>
+        <h1>Add Class</h1>
+        <div>
+          <button
+            form="add-form"
+            className="custom-button submit"
+            type="submit"
+          >
+            Submit
+          </button>
+          <button onClick={handleBackButton} className="custom-button back">
+            Go Back
+          </button>
+        </div>
+      </header>
+      <div className="dashboard-forms-container">
+        <form onSubmit={handleSubmit} id="add-form" className="dashboard-forms">
+          <label>
+            Name:
+            <input
+              onChange={handleChange}
+              name="name"
+              value={credentials.name}
+            />
+          </label>
+          <label>
+            Type:
+            <input
+              onChange={handleChange}
+              name="type"
+              value={credentials.type}
+            />
+          </label>
+          <label>
+            Start Time:
+            <input
+              onChange={handleChange}
+              name="start"
+              value={credentials.start}
+            />
+          </label>
+          <label>
+            Duration:
+            <input
+              onChange={handleChange}
+              name="duration"
+              value={credentials.duration}
+            />
+          </label>
+          <label>
+            Intensity Level:
+            <input
+              onChange={handleChange}
+              name="intensity"
+              value={credentials.intensity}
+            />
+          </label>
+          <label>
+            Location:
+            <input
+              onChange={handleChange}
+              name="location"
+              value={credentials.location}
+            />
+          </label>
+          <label>
+            Current Number Registered:
+            <input
+              onChange={handleChange}
+              name="registered"
+              value={credentials.registered}
+            />
+          </label>
+          <label>
+            Max Number of Class Size:
+            <input
+              onChange={handleChange}
+              name="maxsize"
+              value={credentials.maxsize}
+            />
+          </label>
+        </form>
+      </div>
     </div>
   );
 };
