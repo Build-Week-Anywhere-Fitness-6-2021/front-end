@@ -40,6 +40,7 @@ const SignUp = () => {
 
   const handleChange = (e) => {
     validateForm(e.target.name, e.target.value);
+    console.log(values)
     setValues({
       ...values,
       [e.target.name]: e.target.value,
@@ -48,20 +49,17 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // if (values.instructorCode === "password") {
-    //   ...values,
-
-    // }
-    // axios
-    //   .post("https://anywhere-fitness-6-2021.herokuapp.com/api/users", { userCredentials })
-    //   .then((res) => {
-    //     console.log(res);
-    //     navigate("/instructorlogin");
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-    navigate("/instructorlogin");
+    axios
+      .post("https://anywhere-fitness-6-2021.herokuapp.com/api/instructors/register", userCredentials )
+      .then((res) => {
+        console.log(res);
+        setValues(res.data)
+        navigate("/instructorlogin");
+      })
+      .catch((err) => {
+        console.log(err.response.data.message);
+      });
+    // navigate("/instructorlogin");
   };
 
   useEffect(() => {
@@ -109,7 +107,7 @@ const SignUp = () => {
         />
         <p className="required">{formErrors.instructorCode}</p>
         <input
-          type="password"
+          type="text"
           name="instructorCode"
           value={values.instructorCode}
           onChange={handleChange}
