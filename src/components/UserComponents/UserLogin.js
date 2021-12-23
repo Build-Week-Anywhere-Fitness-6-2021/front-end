@@ -15,13 +15,14 @@ const UserLogin = () => {
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(false);
   const [values, setValues] = useState({
-    // firstName: "",
-    // lastName: "",
     username: "",
     password: "",
   });
   const navigate = useNavigate();
-  const userCredentials = { email: values.username, password: values.password };
+  const userCredentials = {
+    username: values.username,
+    password: values.password,
+  };
 
   const validateForm = (name, value) => {
     yup
@@ -42,16 +43,23 @@ const UserLogin = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axiosWithAuth()
-      .post("https://anywhere-fitness-6-2021.herokuapp.com/api/auth/login", userCredentials)
+      .post(
+        "https://anywhere-fitness-6-2021.herokuapp.com/api/auth/login",
+        userCredentials
+      )
       .then((res) => {
         setValues(res.data);
         localStorage.setItem("token", res.data.token);
         navigate("/userdashboard");
       })
       .catch((err) => {
-        console.log(err.message);
+        console.log(err.response.data.message);
+        setFormErrors({
+          ...formErrors,
+          unauthorized: err.response.data.message,
+        });
       });
-    navigate("/userdashboard");
+    // navigate("/userdashboard");
   };
 
   useEffect(() => {
@@ -81,6 +89,7 @@ const UserLogin = () => {
           autoComplete="on"
           placeholder="Password"
         />
+        <p className="required">{formErrors.unauthorized}</p>
         <button type="submit" disabled={disabled}>
           Login
         </button>
