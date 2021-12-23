@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# Anywhere Fitness
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Live App: https://front-end-tau-ashen.vercel.app/
 
-## Available Scripts
+### ☝️ Pitch
 
-In the project directory, you can run:
+These days, fitness classes can be held anywhere- a park, an unfinished basement or a garage- not just at a traditional gym. Certified fitness instructors need an easy way to take the awkwardness out of attendance taking and client payment processing.
 
-### `npm start`
+While you could use several mobile apps to accomplish this, **AnywhereFitness** is the all-in-one solution to meet your “on-location” fitness class needs. AnywhereFitness makes it painless for Instructors and Clients alike to hold and attend Fitness classes wherever they might be held.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Instructors can take attendance, request and process payments, create virtual “punch passes” for each type of class offered, alert clients of cancellations or location changes and so much more. Clients can easily find out information on classes - location, class size, start time and duration, as well as reschedule or cancel an upcoming appointment or reservation right from the mobile app.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### ✅ MVP
 
-### `npm test`
+1. User can create/register as a `client` and login with the registered credentials.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. User can create/register as an `instructor` by entering an additional Auth Code during signup, and can login with the registered credentials.
 
-### `npm run build`
+3. `client` and `instructor` are both presented with the appropriate on-boarding walkthrough on first sign-in, with an option to skip it.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Authenticated `Instructor` can create update and delete a `class`. At a minimum, each `class` must have the following properties:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- `Name`
+- `Type`
+- `Start time`
+- `Duration`
+- `Intensity level`
+- `Location`
+- `Current number of registered attendees`
+- `Max class size`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5. Authenticated `client` can search for available classes. At a minimum, they must be able to search by the following criteria:
 
-### `npm run eject`
+- `class time`
+- `class date`
+- `class duration`
+- `class type`
+- `intensity level`
+- `class location`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+6. Authenticated `instructor` can create virtual punch pass categories for each type of group fitness class they offer (yoga, insanity, RIPPED, pilates, etc.)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+7. Authenticated `user` can reserve a spot in a `class` with available seats open, and can reschedule or cancel their current `reservation` from the mobile app.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Meet The Team
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### William Buchanan
 
-## Learn More
+#### Front End Engineer
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Github: https://github.com/wb1110
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### David Fletcher
 
-### Code Splitting
+#### Back End Engineer
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Github: https://github.com/fletchulence
 
-### Analyzing the Bundle Size
+#### Brett Smith
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### Front End Engineer
 
-### Making a Progressive Web App
+Github: https://github.com/brettsmith212
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### Ricardo Castillo
 
-### Advanced Configuration
+#### Front End Engineer
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Github: https://github.com/richad97
 
-### Deployment
+#### David Aihe
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### Front End Engineer
 
-### `npm run build` fails to minify
+Github: https://github.com/Divici
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Ted Volchko
+
+#### Front End Engineer
+
+Github: https://github.com/tvolchko
