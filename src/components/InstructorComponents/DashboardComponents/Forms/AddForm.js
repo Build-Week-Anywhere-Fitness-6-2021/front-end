@@ -59,14 +59,10 @@ const AddForm = (props) => {
       <header>
         <h1>Add Class</h1>
         <div>
-          <button
-            form="add-form"
-            className="custom-button submit"
-            type="submit"
-          >
+          <button form="add-form" className="custom-button green" type="submit">
             Submit
           </button>
-          <button onClick={handleBackButton} className="custom-button back">
+          <button onClick={handleBackButton} className="custom-button orange">
             Go Back
           </button>
         </div>

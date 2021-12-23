@@ -63,12 +63,12 @@ const EditForm = (props) => {
         <div>
           <button
             form="edit-form"
-            className="custom-button submit"
+            className="custom-button green"
             type="submit"
           >
             Submit
           </button>
-          <button onClick={handleBackButton} className="custom-button back">
+          <button onClick={handleBackButton} className="custom-button orange">
             Go Back
           </button>
         </div>

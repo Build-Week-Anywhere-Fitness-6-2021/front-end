@@ -48,7 +48,7 @@ const ListOfClasses = (props) => {
         <div className="main-dash-template">
           <header>
             <h1>List Of Classes</h1>
-            <button className="custom-button back" onClick={handleBackButton}>
+            <button className="custom-button orange" onClick={handleBackButton}>
               Go Back
             </button>
           </header>

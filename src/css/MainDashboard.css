@@ -1,3 +1,7 @@
+body {
+  overflow-x: hidden;
+}
+
 .main-dash * {
   /* border: 1px solid black; */
   font-family: "Open Sans", sans-serif;
@@ -5,6 +9,7 @@
 
 .main-dash > h1 {
   height: 4rem;
+  padding-right: 2rem;
   display: flex;
   justify-content: end;
   align-items: center;
@@ -46,17 +51,18 @@
   padding: 0.5rem 1rem;
   cursor: pointer;
   margin: 0;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.125);
 }
 
-.back {
+.orange {
   background-color: #f58a07;
 }
 
-.submit {
+.green {
   background-color: #07f523;
 }
 
-.delete {
+.red {
   background-color: #f53707;
 }
 
@@ -335,24 +341,25 @@ li span {
   width: 40%;
   margin: auto;
   margin-top: 2rem;
-  padding: 2rem;
+  padding: 2rem 4rem;
   border: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 1rem 0.5rem 1rem rgba(0, 0, 0, 0.05);
 }
 
 .dashboard-forms > label {
   display: flex;
-  flex-direction: column;
-  padding: 0rem 0;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 3rem;
 }
 
 .dashboard-forms > label > input {
   display: flex;
   flex-direction: column;
-  margin: 0.4rem 0;
-  border-radius: 1rem;
+  margin: 0.1rem 0;
   border: 1px solid rgba(0, 0, 0, 0.184);
-  padding: 0.3rem 1rem;
+  /* padding: 0.3rem 1rem; */
 }
 
 .popup {

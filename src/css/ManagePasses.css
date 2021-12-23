@@ -32,26 +32,45 @@
 .users-container {
   display: flex;
   flex-direction: column;
-  width: 80%;
-  margin: 3rem auto;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0.2rem 0.5rem 1rem rgba(0, 0, 0, 0.06);
+  width: 50%;
+  border-radius: 10px;
+
+  margin: 1.5rem 2rem;
+  /* margin: 3rem auto; */
 }
 
-.users-container h3 {
-  margin-bottom: 1rem;
+.users-container > h3 {
+  margin-bottom: 0rem;
   font-size: 1.2rem;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  border-radius: 10px 10px 0 0;
+  background-color: rgba(0, 0, 0, 0.04);
+  color: rgb(110, 110, 110);
+}
+
+.users-container > hr {
+  /* background-color: rgba(72, 72, 72, 0); */
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .user-cards {
   width: 100%;
   display: flex;
+  justify-content: space-around;
 }
 
 .user-card {
-  background: #ced4da;
+  background: rgba(0, 0, 0, 0.04);
   padding: 1rem;
   border-radius: 10px;
+  width: 20%;
   margin: 1rem;
-  width: 10rem;
 }
 
 .user-card form {
