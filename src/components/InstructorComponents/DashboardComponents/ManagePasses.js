@@ -87,16 +87,21 @@ const ManagePasses = () => {
   ));
 
   return (
-    <div className="passes-container">
-      <div className="passes-title-container">
-        <h2>Manage Passes</h2>
-        <Link to="/createpunchpass">
-          <button>Add Punch Pass</button>
-        </Link>
-      </div>
-      <div className="users-container">
-        <h3>Members with Punch Passes</h3>
-        <div className="user-cards">{cardsArr}</div>
+    <div className="main-dash-content">
+      <div className="main-dash-template">
+        <header>
+          <h1>Manage Passes</h1>
+          <Link to="/createpunchpass">
+            <div>
+              <button className="custom-button orange">Add Punch Pass</button>
+            </div>
+          </Link>
+        </header>
+        <div className="users-container">
+          <h3>Members with Punch Passes</h3>
+          <hr></hr>
+          <div className="user-cards">{cardsArr}</div>
+        </div>
       </div>
     </div>
   );

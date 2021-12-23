@@ -20,49 +20,45 @@ const InstructorDashboard = () => {
         <nav>
           <ul>
             <li>
-              <Link to="/instructordashboard">
+              <Link to="/">
                 <span className="side-nav-icons">
                   <AiFillHome />
                   <span>Home</span>
                 </span>
               </Link>
             </li>
-            <div className="li-wrapper">
-              <li>
-                <Link to="/instructordashboard/classes">
-                  <span className="side-nav-icons">
-                    <AiOutlinePlus />
-                    <span>Manage Classes</span>
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/instructordashboard/passes">
-                  <span className="side-nav-icons">
-                    <RiPassportFill />
-                    <span>Manage Passes</span>
-                  </span>
-                </Link>
-              </li>
-            </div>
-            <div className="li-wrapper">
-              <li>
-                <Link to="/instructordashboard/settings">
-                  <span className="side-nav-icons">
-                    <RiSettings4Fill />
-                    <span>Settings</span>
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/">
-                  <span className="side-nav-icons">
-                    <RiLogoutBoxFill />
-                    <span>Logout</span>
-                  </span>
-                </Link>
-              </li>
-            </div>
+            <li>
+              <Link to="/instructordashboard/classes">
+                <span className="side-nav-icons">
+                  <AiOutlinePlus />
+                  <span>Manage Classes</span>
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/instructordashboard/passes">
+                <span className="side-nav-icons">
+                  <RiPassportFill />
+                  <span>Manage Passes</span>
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/instructordashboard/settings">
+                <span className="side-nav-icons">
+                  <RiSettings4Fill />
+                  <span>Settings</span>
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/">
+                <span className="side-nav-icons">
+                  <RiLogoutBoxFill />
+                  <span>Logout</span>
+                </span>
+              </Link>
+            </li>
           </ul>
         </nav>
         <Outlet />

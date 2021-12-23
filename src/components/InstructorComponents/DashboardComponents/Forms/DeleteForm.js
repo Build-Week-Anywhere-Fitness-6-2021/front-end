@@ -13,6 +13,10 @@ const DeleteForm = (props) => {
     props.setDeleteClassName(props.cardData.name);
   };
 
+  const handleBackButton = () => {
+    props.setSelectedClass("");
+  };
+
   return (
     <div class="dashboard-forms-container">
       <form
@@ -22,16 +26,33 @@ const DeleteForm = (props) => {
         }}
         className="dashboard-forms"
       >
-        <p style={{ textAlign: "center" }}>
+        <p style={{ textAlign: "center", marginTop: "0.5rem" }}>
           Are you sure you want to delete {props.cardData.name}?
         </p>
-        <button
-          className="custom-button delete"
-          style={{ width: "20%", margin: "auto", marginTop: "1rem" }}
-          type="submit"
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            margin: "2rem",
+          }}
         >
-          Delete
-        </button>
+          <button
+            style={{ width: "50%", margin: "0 8%" }}
+            onClick={handleBackButton}
+            className="custom-button orange"
+          >
+            Go Back
+          </button>
+
+          <button
+            style={{ width: "50%", margin: "0 8%" }}
+            className="custom-button red"
+            type="submit"
+          >
+            Delete
+          </button>
+        </div>
       </form>
     </div>
   );
