@@ -14,8 +14,6 @@ const initialFormErrors = {
 
 const InstructorLogin = () => {
   const [values, setValues] = useState({
-    // firstName: "",
-    // lastName: "",
     username: "",
     password: "",
   });
@@ -26,7 +24,6 @@ const InstructorLogin = () => {
     password: values.password,
   };
   const navigate = useNavigate();
-
 
   const validateForm = (name, value) => {
     yup
