@@ -45,12 +45,13 @@ const InstructorLogin = () => {
     e.preventDefault();
     axiosWithAuth()
       .post(
-        "https://anywhere-fitness-6-2021.herokuapp.com/api/auth/login",
+        "https://anywhere-fitness-6-2021.herokuapp.com/api/instructors/login",
         userCredentials
       )
       // email: eve.holt@reqres.in password: cityslicka
       .then((res) => {
         console.log(res);
+        setValues(res.data)
         localStorage.setItem("token", res.data.token);
         navigate("/instructordashboard");
       })
