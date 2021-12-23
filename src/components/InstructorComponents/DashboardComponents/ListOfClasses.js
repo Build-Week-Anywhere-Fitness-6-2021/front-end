@@ -15,20 +15,43 @@ const ListOfClasses = (props) => {
     setClicked(true);
   };
 
+  const handleBackButton = () => {
+    props.setSelectedClass("");
+  };
+
   return (
     <>
       {isClicked ? (
         <>
           {props.selectedClass === "edit" ? (
-            <EditForm cardData={cardData} />
+            <EditForm
+              setAddedClassName={props.setAddedClassName}
+              setEditClassName={props.setEditClassName}
+              setDeleteClassName={props.setDeleteClassName}
+              setPopup={props.setPopup}
+              setSelectedClass={props.setSelectedClass}
+              cardData={cardData}
+            />
           ) : null}
           {props.selectedClass === "delete" ? (
-            <DeleteForm cardData={cardData} />
+            <DeleteForm
+              setAddedClassName={props.setAddedClassName}
+              setEditClassName={props.setEditClassName}
+              setDeleteClassName={props.setDeleteClassName}
+              setPopup={props.setPopup}
+              setSelectedClass={props.setSelectedClass}
+              cardData={cardData}
+            />
           ) : null}
         </>
       ) : (
-        <div id="class-list-container">
-          <h2>List Of Classes</h2>
+        <div className="main-dash-template">
+          <header>
+            <h1>List Of Classes</h1>
+            <button className="custom-button back" onClick={handleBackButton}>
+              Go Back
+            </button>
+          </header>
           <div id="class-list-elem-container">
             {props.classes.map((obj) => {
               return (

@@ -14,7 +14,7 @@ const ClassCard = (props) => {
       </div>
       <hr />
       <div id="group-2">
-        <p>Start Time: {obj.startTime}</p>
+        <p>Start Time: {obj.start}</p>
         <p>Location: {obj.location}</p>
       </div>
     </div>
